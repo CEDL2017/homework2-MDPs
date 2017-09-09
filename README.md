@@ -6,7 +6,11 @@ The lab materials are partially borrowed from [UC Berkerly cs294](http://rll.ber
 ## Introduction
 In this homework, we solve MDPs with finte state and action space via value iteration, policy iteration, and tabular Q-learning. 
 
-![]("imgs/mdps.png")
+### What's Markov decision process (MDP)?
+Markov Decision Process is a discrete time stochastic control process. At each time step, the process is in some state `s`, and the decision maker may choose any action `a` that is available in state `s`. The process responds at the next time step by randomly moving into a new state `s'`, and giving the decision maker a corresponding reward `R(s,a,s')`
+
+
+<p align="center"><img src="imgs/mdps.png" height="300"/></p>
 
 image borrowed from UCB CS188
 
