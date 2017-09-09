@@ -2,8 +2,13 @@
 
 The lab materials are partially borrowed from [UC Berkerly cs294](http://rll.berkeley.edu/deeprlcourse/)
 
+
 ## Introduction
 In this homework, we solve MDPs with finte state and action space via value iteration, policy iteration, and tabular Q-learning. 
+
+![]("imgs/mdps.png")
+
+image borrowed from UCB CS188
 
 ## Setup
 - Python 3.5.3
