@@ -51,7 +51,11 @@ Open the assignment: Open Lab1-MDPs (students).ipynb, and it will walk you throu
 - [30%] tabular Q-learning
 - [10%] report
 
-# Other
+## Other
 If you stuck in the homework, here are some nice material that you can take it a look :smile:
 - [dennybritz/reinforcement-learning](https://github.com/dennybritz/reinforcement-learning)
 - [UC Berkeley CS188 Intro to AI](http://ai.berkeley.edu/home.html)
+
+
+Office hour 2-3 pm in 資電館711 with [Yuan-Hong Liao](https://andrewliao11.github.io).
+
