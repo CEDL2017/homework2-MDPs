@@ -28,7 +28,7 @@ We encourage you to install [Anaconda](https://www.anaconda.com/download/) or [M
 ```
 conda env create -f environment.yml
 source activate cedl
-# deactivate when you want to leaving the environment
+# deactivate when you want to leave the environment
 source deactivate cedl
 ```
 
