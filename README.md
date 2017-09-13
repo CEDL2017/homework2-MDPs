@@ -20,6 +20,7 @@ image borrowed from UCB CS188
 - numpy
 - matplotlib
 - ipython
+
 All the codes you need to modified are in ```Lab2-MDPs.ipynb```. 
 
 We encourage you to install [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) in your laptop to avoid tedious dependencies problem.
