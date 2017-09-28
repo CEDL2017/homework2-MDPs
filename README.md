@@ -51,6 +51,7 @@ Open the assignment: Open Lab1-MDPs (students).ipynb, and it will walk you throu
 - [30%] policy iteration
 - [30%] tabular Q-learning
 - [10%] report
+- [5%] Share you code and what you learn on github or  yourpersonal blogs, such as [this](https://andrewliao11.github.io/object/detection/2016/07/23/detection/)
 
 ## Other
 - Office hour 2-3 pm in 資電館711 with [Yuan-Hong Liao](https://andrewliao11.github.io).
