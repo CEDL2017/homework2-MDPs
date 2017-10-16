@@ -11,7 +11,7 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 	R = np.zeros(mdp.nS)
 	for s in range(mdp.nS):
 		for p in mdp.P[s][pi[s]]:
-    			P[s][p[1]] += p[0]
+			P[s][p[1]] += p[0]
         		R[s] += p[2]
 	a = np.eye(mdp.nS) - gamma * P
 	b = P.dot(R)
@@ -25,7 +25,7 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 	v = np.zeros(mdp.nS)
 	for s in range(mdp.nS):
 		for p in mdp.P[s][pi[s]]:
-    			a[s][p[1]] -= p[0]*gamma
+			a[s][p[1]] -= p[0]*gamma
         		b[s] += p[0] * p[2]
 	V = np.linalg.solve(a, b)
 ###
