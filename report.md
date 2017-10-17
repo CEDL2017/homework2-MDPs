@@ -7,7 +7,6 @@ In this homework, there are mainly three problems that we want to solve:
 * <b>Problem 2: Policy Iteration</b>
 	* Problem 2a: state value function
 	* Problem 2b: state-action value function
-* <b>Problem 2: Policy Iteration</b>
 * <b>Problem 3: Sampling-based Tabular Q-Learning</b>
 
 
@@ -24,7 +23,7 @@ In this homework, there are mainly three problems that we want to solve:
 	
 	
 ## Detail
-<b>1. Value Iteration</b>
+### 1. Value Iteration
 We use `Bellman Equation` to update the value. We calculate all the expected values and each (s,a) will be many possible state.
 Finally we can get the value which is the best in current state. And you can use this value to calculate the policy.
 
@@ -61,10 +60,12 @@ Finally we can get the value which is the best in current state. And you can use
     return Vs, pis
 ```
 
-<b>2. Policy Iteration</b>
+### 2. Policy Iteration
 Using `Bellman Equation` to update the value, finally we can get the value of current policy. We compute the `state value function` and the `state-action value function`.
+
 	* state value function
-	```
+	
+```
 	def compute_vpi(pi, mdp, gamma):
 		nA = mdp.nA # The number of actions
 		nS = mdp.nS # The number of states
@@ -83,10 +84,10 @@ Using `Bellman Equation` to update the value, finally we can get the value of cu
 		V = np.linalg.solve(a, b)
 		
 		return V
-	```
+```
 
 	* state-action value function
-	```
+```
 	def compute_qpi(vpi, mdp, gamma):
 		nA = mdp.nA # The number of actions
 		nS = mdp.nS # The number of states
@@ -103,16 +104,16 @@ Using `Bellman Equation` to update the value, finally we can get the value of cu
 				Qpi[state][action] = expected_value
 		  
 		return Qpi
-	```
+```
 
-<b>3. Sampling-based Tabular Q-Learning</b>
+### 3. Sampling-based Tabular Q-Learning
 Q-Learning works by learning an action-value function that ultimately gives the expected utility of taking a given action in the state and following the optimal policy thereafter.
 There will have the parameter called epsilon-greedy, which can control the probability that will choose the action of the best value.
 There is the algorithm:
 ![Q-Learning algorithm](Q-Learning.png)
 
 	* epsilon-greedy
-	```
+```
 	import random
 
     x = random.uniform(0, 1)
@@ -122,10 +123,10 @@ There is the algorithm:
         action = np.argmax(q_vals[state])
     
     return action
-	```
+```
 	
 	* Q-Learning update
-	```
+```
 	q_target = reward + gamma * np.max(q_vals[next_state])
-    q_vals[cur_state][action] = (1-alpha) * q_vals[cur_state][action] + alpha * q_target
-	```
+    	q_vals[cur_state][action] = (1-alpha) * q_vals[cur_state][action] + alpha * q_target
+```
