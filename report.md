@@ -11,6 +11,7 @@ while(loop):
 ```
 
 假設state之間的關係不會變化
+
 將reward-value table持續更新，讓每個state採取最新reward-value最大化的行動。
 2. policy iteration
 
@@ -21,6 +22,7 @@ while(loop):
   pi = compute_pi(qpi)
 ```
 假設state之間的關係不會變化
+
 將q-value table持續更新，讓其採取reward-value最大化的policy。
 
 3. tabular Q-learning
