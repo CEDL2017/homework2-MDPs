@@ -43,7 +43,7 @@ Qpi = np.zeros([mdp.nS, mdp.nA]) # REPLACE THIS LINE WITH YOUR CODE
                 Qpi[s][a] += prob*(reward+gamma*vpi[nextstate])
 ```
 ## Tabular Q-Learning
-  此方法用在不知道 current state to next state的機率，所以不能用 Bellman equation update參數，還有一個參數 eps來決定下一個動作是隨機動作還是取最佳動作
+  此方法用在不知道 current state to next state的機率，所以不能用 Bellman equation update參數，還有一個參數 eps來決定下一個動作是隨機動作還是取最佳動作。
 ### Spotlight code
 Eps greedy
 ```
