@@ -60,6 +60,28 @@ pi = np.argmax(pi, axis = 1)
 
 ### 3. Tabular Q-learning
 
+1) epsilon greedy
+```
+n_actions = len(q_vals[state])
+    action = np.argmax(q_vals[state])
+    if random.random() < eps:
+        action = int(n_actions * (random.random()))
+```
+
+2) q_learning_updtae
+```
+target = reward + gamma * np.max(q_vals[next_state])
+q_vals[cur_state][action] = ((1.0 - alpha) * q_vals[cur_state][action]) + (alpha * target)
+```
+
+3) combine together and create a complete q learning agent
+```
+action = eps_greedy(q_vals, eps, cur_state)
+next_state, reward, done, _ = env.step(action)
+q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
+cur_state = next_state
+```
+
 ## Installation
 * Use the tool Jupyter and make sure choosing the kernel Python3
 * `shift + enter` to run the section, error message would be reported rught below the box
@@ -87,6 +109,8 @@ problem2b: state-action value function
 ------------------------------------------------------------------------------------------------
 
 Problem 3: Sampling-based Tabular Q-Learning
+
+Video: crawler_demo.mov
 <video autoplay>
     <source src="crawler.mov" type='video/mov'/>
 </video>
