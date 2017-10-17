@@ -63,7 +63,7 @@ Finally we can get the value which is the best in current state. And you can use
 ### 2. Policy Iteration
 Using `Bellman Equation` to update the value, finally we can get the value of current policy. We compute the `state value function` and the `state-action value function`.
 
-	* state value function
+<b>state value function</b>
 	
 ```
 	def compute_vpi(pi, mdp, gamma):
@@ -86,7 +86,7 @@ Using `Bellman Equation` to update the value, finally we can get the value of cu
 		return V
 ```
 
-	* state-action value function
+<b>state-action value function</b>
 ```
 	def compute_qpi(vpi, mdp, gamma):
 		nA = mdp.nA # The number of actions
@@ -112,9 +112,9 @@ There will have the parameter called epsilon-greedy, which can control the proba
 There is the algorithm:
 ![Q-Learning algorithm](Q-Learning.png)
 
-	* epsilon-greedy
+<b>epsilon-greedy</b>
 ```
-	import random
+    import random
 
     x = random.uniform(0, 1)
     if x < eps:
@@ -125,8 +125,8 @@ There is the algorithm:
     return action
 ```
 	
-	* Q-Learning update
+<b>Q-Learning update</b>
 ```
-	q_target = reward + gamma * np.max(q_vals[next_state])
-    	q_vals[cur_state][action] = (1-alpha) * q_vals[cur_state][action] + alpha * q_target
+    q_target = reward + gamma * np.max(q_vals[next_state])
+    q_vals[cur_state][action] = (1-alpha) * q_vals[cur_state][action] + alpha * q_target
 ```
