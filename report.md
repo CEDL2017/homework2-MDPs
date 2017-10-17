@@ -67,14 +67,26 @@ pi = np.argmax(pi, axis = 1)
 
 
 ## Results
+
 problem 1: value_iteration
-<img src="placeholder.jpg"/>
+
+<img src="螢幕快照 2017-10-17 下午6.55.12.png" width="50%"/>
+
+------------------------------------------------------------------------------------------------
 
 problem2a: state value function
-<img src="placeholder.jpg"/>
+
+<img src="螢幕快照 2017-10-17 下午6.54.51.png" width="70%"/>
+
+------------------------------------------------------------------------------------------------
 
 problem2b: state-action value function
-<img src="placeholder.jpg"/>
+
+<img src="螢幕快照 2017-10-17 下午6.54.25.png" width="50%"/>
+
+------------------------------------------------------------------------------------------------
 
 Problem 3: Sampling-based Tabular Q-Learning
-<img src="placeholder.jpg"/>
+<video autoplay>
+    <source src="crawler.mov" type='video/mov'/>
+</video>
