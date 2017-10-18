@@ -4,7 +4,7 @@ from six import StringIO, b
 
 from gym import utils
 import discrete_env
-
+SSSS  = 1
 LEFT = 0
 DOWN = 1
 RIGHT = 2
