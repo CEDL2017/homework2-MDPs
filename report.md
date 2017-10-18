@@ -10,7 +10,9 @@ The assignment is related to:
 Markov Decision Process
 
 > value iteration
+
 > policy iteration
+
 > tabular Q-learning
 
 ## Envs
