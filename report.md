@@ -1,17 +1,17 @@
+
+# HW 2: MDPs
+
 # 賴承薰 <span style="color:red">(105061583)</span>
 
-## HW 2: MDPs
 
 ## Overview
 The assignment is related to:
 
-> Markov Decision Process
+Markov Decision Process
 
->> value iteration
-
->> policy iteration
-
->> tabular Q-learning
+> value iteration
+> policy iteration
+> tabular Q-learning
 
 ## Envs
 * python 3.5
