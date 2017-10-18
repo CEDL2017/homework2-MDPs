@@ -5,10 +5,13 @@
 ## Overview
 The assignment is related to:
 
-Markov Decision Process
-> value iteration
-> policy iteration
-> tabular Q-learning
+> Markov Decision Process
+
+>> value iteration
+
+>> policy iteration
+
+>> tabular Q-learning
 
 ## Envs
 * python 3.5
