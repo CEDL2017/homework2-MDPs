@@ -90,27 +90,26 @@ cur_state = next_state
 
 ## Results
 
-problem 1: value_iteration
+#### Problem 1: value_iteration
 
 <img src="螢幕快照 2017-10-17 下午6.55.12.png" width="50%"/>
 
 ------------------------------------------------------------------------------------------------
 
-problem2a: state value function
+#### Problem2a: state value function
 
 <img src="螢幕快照 2017-10-17 下午6.54.51.png" width="70%"/>
 
 ------------------------------------------------------------------------------------------------
 
-problem2b: state-action value function
+#### Problem2b: state-action value function
 
-<img src="螢幕快照 2017-10-17 下午6.54.25.png" width="50%"/>
+<img src="螢幕快照 2017-10-17 下午6.54.25.png" width="45%"/>
 
 ------------------------------------------------------------------------------------------------
 
-Problem 3: Sampling-based Tabular Q-Learning
+#### Problem 3: Sampling-based Tabular Q-Learning
 
 Video: crawler_demo.mov
-<video autoplay>
-    <source src="crawler.mov" type='video/mov'/>
-</video>
+
+<video id="Result" src="crawler_demo.mov"></video>
