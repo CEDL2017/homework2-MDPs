@@ -1,8 +1,9 @@
 # Homework1 report
 
 TA: try to elaborate the algorithms that you implemented and any details worth mentioned.
+基本上照著提供的公式跟提示打就可以完成了。不過有些地方是當時寫的時候覺得比較能講的︰
 
-### Problem 1: implement value iteration
+#### Problem 1: implement value iteration
 V = np.copy(Vprev) <- 如同hint所言，V要用Vprev的copy，不然就不會是題目要的更新方式。
 ```
 def value_iteration(mdp, gamma, nIt, grade_print=print):
@@ -15,7 +16,7 @@ def value_iteration(mdp, gamma, nIt, grade_print=print):
 .
 .
 ```
-### Problem 2a: state value function
+#### Problem 2a: state value function
 ```
 def compute_vpi(pi, mdp, gamma):
 .
