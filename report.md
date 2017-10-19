@@ -1,6 +1,7 @@
 # Homework1 report
 
 TA: try to elaborate the algorithms that you implemented and any details worth mentioned.
+
 基本上照著提供的公式跟提示打就可以完成了。不過有些地方是當時寫的時候覺得比較能講的︰
 
 #### Problem 1: implement value iteration
