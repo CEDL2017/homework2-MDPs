@@ -15,3 +15,23 @@ def value_iteration(mdp, gamma, nIt, grade_print=print):
 .
 .
 ```
+### Problem 2a: state value function
+```
+def compute_vpi(pi, mdp, gamma):
+.
+.
+    for s in range(mdp.nS):
+        action = pi[s] 
+        expect = 0.0
+        trans_list = mdp.P[s][action]
+        for trans_idx in range(len(trans_list)):
+            p, next_s, r = trans_list[trans_idx]
+            expect += p * r
+            a[s, next_s] += gamma * p 
+        b[s] = expect
+    I = np.eye(mdp.nS)
+    a = I - a
+.
+.
+```
+原本```a[s, next_s] += gamma * p```這行我是用```=```，不過後來發現在s到next_s有兩種以上的reward時會錯。
