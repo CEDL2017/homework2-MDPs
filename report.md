@@ -36,4 +36,4 @@ def compute_vpi(pi, mdp, gamma):
 .
 .
 ```
-原本```a[s, next_s] += gamma * p```這行我是用```=```，不過後來發現在s到next_s有兩種以上的reward時會錯。
+原本```a[s, next_s] += gamma * p```這行我是用```=```，不過後來發現當s到next_s有兩種以上的reward時會錯。
