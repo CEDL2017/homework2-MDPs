@@ -1,4 +1,6 @@
 # CEDL2017 HW2 Report
+**Strongly recommended to view this report on this [HackMD link](https://hackmd.io/s/Sk0S7skT-), since GitHub does not support math equaitons**
+
 Author: [Howard Lo (羅右鈞)](https://www.facebook.com/yuchunlo1206)
 
 Here are some extra notes about implementing this homework.
