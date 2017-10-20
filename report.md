@@ -9,7 +9,7 @@ We'll first briefly explain the two exact methods for solving MDPs problem, whic
 
 For value iteration and policy iteration, the main reference I took was the second edition of [*"Reinforcement Learning: An Introduction"* book by Richard S. Sutton](http://incompleteideas.net/sutton/book/bookdraft2017june.pdf), and also the [lecture 2 and 3 of RL course by David Silver](https://www.youtube.com/playlist?list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-). And for tabular Q-learing, I recommend to take a look at the [lecture 10 of AI course by Pieter Abbeel](https://www.youtube.com/watch?v=7huURSBATmg&list=PLIeooNSdhQE5kRrB71yu5yP9BRCJCSbMt&index=11) to grasp the idea.
 
-## Value iteration
+## Value Iteration
 Value iteration algorithm uses *Bellman optimality equation* to iteratively update the state-value function $v$ until it is converged to optimal $v_*$.
 $$
 \begin{aligned}
@@ -66,7 +66,7 @@ for state in range(mdp.nS):
 
 Note that there are some differences compared to the pseudocode:
 1. In our homework settings, we only get a single deterministic reward after the agent performs an action, so we can ignore the $\underset{r}{\sum}$ term in the complete Bellman equation. As a result, we use the simplified Bellman equation to compute $q$:
-$$q(s,a) = \underset{s'}{\sum}p(s'|s,a)[r+\gamma v(s')]\text{, where r = r(s,a)}$$
+$$q(s,a) = \underset{s'}{\sum}p(s'|s,a)[r+\gamma v(s')]$$
 And rewrite it to the update rule will be:
 $$q_{k+1}(s,a) \leftarrow \underset{s'}{\sum}p(s'|s,a)[r+\gamma v_k(s')]$$
 So that's why the $q$ is computed by:
@@ -131,10 +131,10 @@ $$
 \end{bmatrix}
 \left(
     \begin{bmatrix}
-        r(s=1)\\
-        r(s=2)\\
+        r(s'=1)\\
+        r(s'=2)\\
         \vdots\\
-        r(s=n)
+        r(s'=n)
     \end{bmatrix} + \gamma
     \begin{bmatrix}
         v(s'=1)\\
@@ -243,7 +243,7 @@ And we can estimate $v_{\pi}$ without knowing the environment dynamics:
 
 But, here comes a problem. As we saw previously in the policy improvement part, we improve our policy by argmaxing $q_{\pi}(s,a)$, but before that, we need to compute $q_{\pi}(s,a)$:
 $$q_{\pi}(s,a) = \underset{s'}{\sum}p(s'|s,a)[r+\gamma v_{\pi}(s')]$$
-According to the above equation, we still need to know the state-transition probabilites $p(s'|s,a)$ and reward $r(s,a)$. So, why don't we directly perform temporal difference learning on $q_{\pi}$ value function? And this turns out to be *Q-learning*!
+According to the above equation, we still need to know the state-transition probabilites $p(s'|s,a)$ and reward $r$. So, why don't we directly perform temporal difference learning on $q_{\pi}$ value function? And this turns out to be *Q-learning*!
 
 Q-learning -- sample-based Q-value iteration:
 $$
