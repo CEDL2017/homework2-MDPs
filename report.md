@@ -228,7 +228,7 @@ for _ in range(num_iteration):
 Note that either value iteration or policy iteration is sufficient to solve the MDPs problem, and actually it turns out that value iteration is just the truncated version of policy iteration, so don't be confused :-)
 
 ## Sampling-based Tabular Q-Learning
-If now, we do not have the prior information about the environment dynamics, specifially, we do not know the state-transition probabilites $p(s'|s,a)$ and reward $r(s,a)$, then how do we compute the value functions?
+If now, we do not have the prior information about the environment dynamics, specifially, we do not know the state-transition probabilites $p(s'|s,a)$ and reward $r$, then how do we compute the value functions?
 
 we can actually do sampling! That is, we perform *[temporal difference learning](https://en.wikipedia.org/wiki/Temporal_difference_learning)*, by doing the action $\pi(s)$, take sample of outcome $s',r$ and then perform the [moving average (specifially, the exponential moving average)](https://en.wikipedia.org/wiki/Moving_average) to compute the estimated new value functions. And yes, this is the same as the policy evaluation, but we estimate it. Let's recap how we perform policy evaluation on $v_{\pi}(s)$:
 $$
