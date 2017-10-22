@@ -1,60 +1,57 @@
 # Homework1 report
+106062623 楊朝勛
 
-本次的作業主要是利用 Bellman Equation 來實現三種不同的算法：
-## Value iteration
-  使用 bellman 的最優方程式來更新 value, 最後收斂得到的 value即是當前 state狀態下最佳的 value. 因此只要最後收斂，就可以利用最佳的值來推導最佳的 policy.
-### Spotlight code
-  ```
-   for it in range(nIt):
+TA: try to elaborate the algorithms that you implemented and any details worth mentioned.
+
+1. value iteration
+
+```python
+for it in range(nIt):
         oldpi = pis[-1] if len(pis) > 0 else None # \pi^{(it)} = Greedy[V^{(it-1)}]. Just used for printout
         Vprev = Vs[-1] # V^{(it)}
-        V = np.zeros([mdp.nS])
-        pi = np.zeros([mdp.nS])
-        for s in range(mdp.nS):
-            A = np.zeros([mdp.nA])
-            for a in range(mdp.nA):
-                for  probability, nextstate, reward in mdp.P[s][a]:
-                    #print(nextstate)
-                    A[a] += probability*(reward+gamma*Vs[it][nextstate])
-                       
-            V[s] = np.max(A)
-            pi[s] = np.argmax(A)
-```    
-## Policy iteration
-  使用 bellman equation 來更新 value, 最後收斂的 value 即是當下 policy的 value值，目的是為了使後面的 ploicy improvement來得到新的 policy. 接者再進行下一次的迭代求下一個 value和最佳的 policy.
-### Spotlight code
-State value function
-```
-for state1 in range(mdp.nS):
-        for prob, nextstate, reward in mdp.P[state1][pi[state1]]:
-            
-            a[state1][nextstate] -= gamma*prob
-            b[state1] += prob*reward
-        
 
-    V = np.linalg.solve(a,b)
+        Q = np.asarray([np.asarray([np.asarray([p*(r+gamma*Vprev[s]) for (p,s,r) in tups]).sum() \
+                                  for (a, tups) in a2d.items()]) for (s, a2d) in mdp.P.items()]) #update Q value
+        pi = np.argmax(Q, axis=1) #pi^{(it)} = Greedy[V^{(it)}]
+        
+        V = np.max(Q, axis=1) #V^{(it+1)} = T[V^{(it)}]
+    return Vs, pis
 ```
-State policy(action value) function
+透過更新reward value的值來更新下個iteration每個state的value <br>
+其中每次選擇時都選擇`最大value`的state當下個輸入<br>
+(i.e. 皆假設state和action space不隨時間變化)
+<br>
+2. policy iteration
+
+```python
+#Vpi值依據公式推導
+  pi_tups = [a2d[pi[s]] for (s, a2d) in mdp.P.items()]
+  A = np.identity(mdp.nS)
+  transition = np.array([np.array([p * A[s2] for (p,s2,r) in tups]).sum(axis=0) for tups in pi_tups])
+  A -= gamma * transition
+  b = np.array([np.array([p * r for (p,s2,r) in tups]).sum() for tups in pi_tups])
+  Vpi = np.linalg.solve(A, b)
+#Qpi值依據公式推導 
+  Qpi = np.array([np.array([np.array([p*(r+gamma*vpi[s2]) for (p,s2,r) in tups]).sum() for (a, tups) in a2d.items()]) for (s, a2d) in mdp.P.items]) 
+    
 ```
-Qpi = np.zeros([mdp.nS, mdp.nA]) # REPLACE THIS LINE WITH YOUR CODE
-    for s in range(mdp.nS):
-        for a in range(mdp.nA):
-            for prob, nextstate, reward in mdp.P[s][a]:
-                Qpi[s][a] += prob*(reward+gamma*vpi[nextstate])
+透過更新reward value的值來更新下個iteration每個state的value <br>
+其中每次選擇時根據`policy iteration`的方式去依據每個state之`機率`sample結果<br>
+(i.e. 皆假設state和action space不隨時間變化)<br>
+<br>
+
+3. tabular Q-learning
+
+```python
+while(loop):
+    action = eps_greedy(q_vals, eps, cur_state)
+    next_state,reward, _, _ = env.step(action)
+    q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
+    cur_state = next_state  
 ```
-## Tabular Q-Learning
-  此方法用在不知道 current state to next state的機率，所以不能用 Bellman equation update參數，還有一個參數 eps來決定下一個動作是隨機動作還是取最佳動作。
-### Spotlight code
-Eps greedy
-```
-    ran = random.random()
-    if ran<eps:
-        action = random.randint(0,len(q_vals[state])-1)
-    else:
-        action = np.argmax(q_vals[state])
-```        
-Q learning update
-```
- target = max(q_vals[next_state][0], q_vals[next_state][1], q_vals[next_state][2], q_vals[next_state][3])
-    q_vals[cur_state][action]= (1-alpha)*q_vals[cur_state][action]+alpha*(reward+gamma*target)
-```    
+透過更新reward value的值來更新下個iteration每個state的value <br>
+會先隨機出一個大小`0~1`的數字<br>
+當小於`epi`時,其中每次選擇時根據Q value tabel選擇最大value的state當下個輸入<br>
+當大於`epi`時,其中每次選擇時隨機選擇state當下個輸入<br>
+(i.e. 皆假設state和action space不隨時間變化)
+
