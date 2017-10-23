@@ -11,6 +11,9 @@ In the homework, we implement the three classic algorithms in two environments:
 Both environments are taken from `gym`.
 
 ## Frozen Lake Environment
+### Environment
+<p align="center"><img src="imgs/frozen.PNG" width=80%  height=80%/></p>
+<p align="center"><img src="imgs/illustrate.PNG" width=80%  height=80%/></p>
 ### Problem 1: Implement Value Iteration
 * <b>Pseudocode</b>
 	
@@ -125,7 +128,8 @@ which combines `state value function` and `state-action value function`.
 	* Finally, iterate the policy.
 		
 ## a Crawler robot Environment
-
+### Environment
+<p align="center"><img src="imgs/crawler.PNG" width=80%  height=80%/></p>
 ### Problem 3: Implement Sampling-based Tabular Q-Learning
 The implemention of Sampling-based Tabular Q-Learning is also divided into three parts. 
 One for `eps_greedy`, another one for `q_learning_update` 
