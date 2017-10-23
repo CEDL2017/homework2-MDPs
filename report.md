@@ -63,7 +63,7 @@ The implemention of Policy Iteration is divided into three parts. One for state 
 * <b>Code</b>
 
 	<b>Part 1: state value function</b> (`compute_vpi`)
-	* To be notice, we're using `np.linalg.solve` to calculate the value `V`.
+	To be notice, we're using `np.linalg.solve` to calculate the value `V`.
 	
 	> Follow the guide bellow.
 	
@@ -147,41 +147,42 @@ The implemention of Sampling-based Tabular Q-Learning is also divided into three
 		#   number of actions can be read off from len(q_vals[state])
 		```
 
-		* Import `random`
-		* Random exploration. If random.random() > eps, argmax `q_vals`. Otherwise, random action.
-		```
-		if random.random() > eps:
-			action = np.argmax(q_vals[state])
-		else:
-			action = random.randint(0, len(q_vals[state])-1)
-		```
+	* Import `random`
+	* Random exploration. If random.random() > eps, argmax `q_vals`. Otherwise, random action.
+	```
+	if random.random() > eps:
+		action = np.argmax(q_vals[state])
+	else:
+		action = random.randint(0, len(q_vals[state])-1)
+	```
 	<b>2. `q_learning_update`:</b>
 	
-		* Calculate the dicounted reward to the target `target`.
-		```
-		target = reward + gamma * np.max(q_vals[next_state])		
-		```
+	* Calculate the dicounted reward to the target `target`.
+	```
+	target = reward + gamma * np.max(q_vals[next_state])		
+	```
 
-		* Update the dicounted reward with learning rate `alpha` in Q table.
-		```
-		q_vals[cur_state][action] = (1 - alpha) * q_vals[cur_state][action] + alpha * target
-		```
+	* Update the dicounted reward with learning rate `alpha` in Q table.
+	```
+	q_vals[cur_state][action] = (1 - alpha) * q_vals[cur_state][action] + alpha * target
+	```
 		
 	<b>3. The main part:</b>
+	
 	Combine `eps_greedy` and `q_learning_update`.
-		* Find the action.
-		```
-		action = eps_greedy(q_vals, eps, cur_state)
-		```
+	* Find the action.
+	```
+	action = eps_greedy(q_vals, eps, cur_state)
+	```
 
-		* Get `next_state` and `reward` with the action `action` calculated by `eps_greedy`.			
-		```			
-		next_state, reward, done, info = env.step(action)  
-		```
+	* Get `next_state` and `reward` with the action `action` calculated by `eps_greedy`.			
+	```			
+	next_state, reward, done, info = env.step(action)  
+	```
 
-		* Updating Q-value by `q_learning_update`.
-		```
-		q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
-		```
+	* Updating Q-value by `q_learning_update`.
+	```
+	q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
+	```
 
-		* Finally, iterate the steps above.
+	* Finally, iterate the steps above.
