@@ -5,8 +5,8 @@ This homework is related to
 > solve <b>Markov Decision Processes (MDPs) with finite state and action spaces</b> with <b>Value Iteration</b>, <b>Policy Iteration</b> and <b>Sampling-based Tabular Q-Learning</b>. 
 
 In the homework, we implement the three classic algorithms in two environments: 
-* For <b>Frozen Lake</b>, we use **Value Iteration** and **Policy Iteration**. 
-* For <b>a Crawler robot</b>, we use **Sampling-based Tabular Q-Learning**.
+* For <b>Frozen Lake</b>, we use *Value Iteration* and *Policy Iteration*. 
+* For <b>a Crawler robot</b>, we use *Sampling-based Tabular Q-Learning*.
 
 Both environments are taken from `gym`.
 
@@ -49,10 +49,10 @@ Both environments are taken from `gym`.
 		
 ### Problem 2: Implement Policy Iteration
 The implemention of Policy Iteration is divided into three parts. 
-One for **state value function**, 
-another one for **state-action value function** 
-and the other one for **policy iteration**, 
-which combines **state value function** and **state-action value function**. 
+One for *state value function*, 
+another one for *state-action value function* 
+and the other one for *policy iteration*, 
+which combines *state value function* and *state-action value function*. 
 * <b>Pseudocode</b>
 
 	> For <b>all</b>:
@@ -114,7 +114,7 @@ which combines **state value function** and **state-action value function**.
 
 	<b>Part 3: policy iteration</b> (`policy_iteration`)
 
-	* Combine part 1 and 2.
+	* Combine *Part 1* and *2*.
 	* In order to get the policy `pi`, we need to argmax `qpi`. Before we get `qpi` from `compute_qpi`, the parameter `vpi` should be calculated first. So we use `compute_vpi` to output the value `vpi`. 
 	```
 	vpi = compute_vpi(pi_prev, mdp, gamma)
@@ -129,7 +129,7 @@ which combines **state value function** and **state-action value function**.
 ### Problem 3: Implement Sampling-based Tabular Q-Learning
 The implemention of Sampling-based Tabular Q-Learning is also divided into three parts. 
 One for `eps_greedy`, another one for `q_learning_update` 
-and the other one for **the main part**, 
+and the other one for *the main part*, 
 which combines `eps_greedy` and `q_learning_update`.
 * <b>Pseudocode</b>
 
