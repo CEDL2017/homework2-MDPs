@@ -13,9 +13,15 @@ In the last part, we utilize <code>CrawlingRobotEnv()</code> , a crawler robot w
 
 ### Algorithm
 
+The pseudocode is like:
+
 <p align="center"><img src="imgs/p1_1.PNG" width=80%  height=80%/></p>
 
+Define the sequence of greedy policies, where
+
 <p align="center"><img src="imgs/p1_2.PNG" width=80%  height=80%/></p>
+
+Then the the function <code>value_iteration</code> will return two lists : <code>Vs</code>(Values) and <code>pis</code>(actions)
 
 ### Code
 
@@ -140,7 +146,53 @@ Finally, we can aquire new pi from <code>Qpi</code>
 
 ### Code
 
+Define <code>eps_greedy</code> to get epsilon-greedy action
 
+<code>
+
+    def eps_greedy(q_vals, eps, state):
+        import random
+        random_action = random.randint(0,3)
+        max_action = (np.argmax(q_vals[state][:]))
+        act_choice = np.array([random_action, max_action])
+        action = np.random.choice(act_choice, p=[eps, 1-eps])
+        return action
+
+</code>
+
+Define <code>q_learning_update</code> to update q-values <code>q_vals</code>
+
+<code>
+
+    def q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward):
+        target = reward + gamma*np.amax(q_vals[next_state][:])
+        q_vals[cur_state][action] = (1-alpha)*q_vals[cur_state][action] + alpha*target
+
+</code>
+
+Put everything together to create a complete q learning agent
+
+In each iteration, use <code>eps_greedy</code> to generate next action, <code> env.step(action)</code> to obtain next state and reward, <code>q_learning_update</code> to update q values. Then change current state.
+
+<code>
+    
+    action = eps_greedy(q_vals, eps, cur_state)
+    next_state, reward, done, info = env.step(action)
+    q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
+    cur_state = next_state 
+    
+</code>
 
 ### Results
 
+Performance of different iterations
+
+<p align="center"><img src="imgs/p3_result.PNG" width=30%  height=30%/></p>
+
+Visualization : 1000 iteration
+
+<p align="center"><img src="imgs/p3_visual1.PNG" width=80%  height=80%/></p>
+
+Visualization : 5000 iteration
+
+<p align="center"><img src="imgs/p3_visual2.PNG" width=80%  height=80%/></p>
