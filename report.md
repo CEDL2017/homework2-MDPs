@@ -130,7 +130,7 @@ which combines `state value function` and `state-action value function`.
 		
 ## a Crawler robot Environment
 ### Environment
-<p align="center"><img src="imgs/crawler.PNG" width=50%  height=50%/></p>
+<p align="center"><img src="imgs/crawler.PNG" width=60%  height=60%/></p>
 
 ### Problem 3: Implement Sampling-based Tabular Q-Learning
 The implemention of Sampling-based Tabular Q-Learning is also divided into three parts. 
