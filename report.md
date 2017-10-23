@@ -5,7 +5,7 @@ This homework is related to
 > solve <b>Markov Decision Processes (MDPs) with finite state and action spaces</b> with <b>Value Iteration</b>, <b>Policy Iteration</b> and <b>Sampling-based Tabular Q-Learning</b>. 
 
 In the homework, we implement the three classic algorithms in two environments: 
-* For <b>Frozen Lake</b>, we use **Value Iteration** and *Policy Iteration**. 
+* For <b>Frozen Lake</b>, we use **Value Iteration** and **Policy Iteration**. 
 * For <b>a Crawler robot</b>, we use **Sampling-based Tabular Q-Learning**.
 
 Both environments are taken from `gym`.
