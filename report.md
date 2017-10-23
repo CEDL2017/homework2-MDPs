@@ -5,8 +5,8 @@ This homework is related to
 > solve <b>Markov Decision Processes (MDPs) with finite state and action spaces</b> with <b>Value Iteration</b>, <b>Policy Iteration</b> and <b>Sampling-based Tabular Q-Learning</b>. 
 
 In the homework, we implement the three classic algorithms in two environments: 
-* For <b>Frozen Lake</b>, we use <b>Value Iteration</b> and <b>Policy Iteration</b>. 
-* For <b>a Crawler robot</b>, we use <b>Sampling-based Tabular Q-Learning</b>.
+* For <b>Frozen Lake</b>, we use **Value Iteration** and **Policy Iteration**. 
+* For <b>a Crawler robot</b>, we use **Sampling-based Tabular Q-Learning**.
 
 Both environments are taken from `gym`.
 
@@ -48,7 +48,11 @@ Both environments are taken from `gym`.
 	* Finally, Repeat iterate all the states.
 		
 ### Problem 2: Implement Policy Iteration
-The implemention of Policy Iteration is divided into three parts. One for state value function, another one for state-action value function and the other one for policy iteration, which combines state value function and state-action value function. 
+The implemention of Policy Iteration is divided into three parts. 
+One for **state value function**, 
+another one for **state-action value function** 
+and the other one for **policy iteration**, 
+which combines **state value function** and **state-action value function**. 
 * <b>Pseudocode</b>
 
 	> For <b>all</b>:
@@ -63,6 +67,7 @@ The implemention of Policy Iteration is divided into three parts. One for state 
 * <b>Code</b>
 
 	<b>Part 1: state value function</b> (`compute_vpi`)
+	
 	To be notice, we're using `np.linalg.solve` to calculate the value `V`.
 	
 	> Follow the guide bellow.
@@ -100,7 +105,7 @@ The implemention of Policy Iteration is divided into three parts. One for state 
 	Qpi = np.zeros([mdp.nS, mdp.nA])	
 	```
 
-	* For all the state `s`, we sum up the dicounted reward for a action.
+	* For all the state `s`, we sum up the dicounted reward for an action.
 	```
 	for a in range(mdp.nA):
 		for prob, nxt_sta, reward in mdp.P[s][a]:
@@ -122,7 +127,10 @@ The implemention of Policy Iteration is divided into three parts. One for state 
 ## a Crawler robot Environment
 
 ### Problem 3: Implement Sampling-based Tabular Q-Learning
-The implemention of Sampling-based Tabular Q-Learning is also divided into three parts. One for `eps_greedy`, another one for `q_learning_update` and the other one for the main part, which combines `eps_greedy` and `q_learning_update`.
+The implemention of Sampling-based Tabular Q-Learning is also divided into three parts. 
+One for `eps_greedy`, another one for `q_learning_update` 
+and the other one for **the main part**, 
+which combines `eps_greedy` and `q_learning_update`.
 * <b>Pseudocode</b>
 
 	> For <b>Q-learning Update</b>:
