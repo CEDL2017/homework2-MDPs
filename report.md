@@ -15,10 +15,10 @@ Both environments are taken from `gym`.
 * <b>Pseudocode</b>
 	
 	> For <b>Value</b>:
-	<p align="center"><img src="imgs/value.PNG" width=50%  height=50%/></p>
+	<p align="left"><img src="imgs/value.PNG" width=50%  height=50%/></p>
 	
 	> For <b>Policy</b>:
-	<p align="center"><img src="imgs/policy.PNG" width=50%  height=50%/></p>
+	<p align="left"><img src="imgs/policy.PNG" width=50%  height=50%/></p>
 
 * <b>Code</b>
 
@@ -52,13 +52,13 @@ The implemention of Policy Iteration is divided into three parts. One for state 
 * <b>Pseudocode</b>
 
 	> For <b>all</b>:
-	<p align="center"><img src="imgs/all.PNG" width=50%  height=50%/></p>
+	<p align="left"><img src="imgs/all.PNG" width=50%  height=50%/></p>
 	
 	> For <b>state value</b>:
-	<p align="center"><img src="imgs/state_value.PNG" width=50%  height=50%/></p>
+	<p align="left"><img src="imgs/state_value.PNG" width=50%  height=50%/></p>
 	
 	> For <b>state-action value</b>:
-	<p align="center"><img src="imgs/state_action.PNG" width=50%  height=50%/></p>
+	<p align="left"><img src="imgs/state_action.PNG" width=50%  height=50%/></p>
 
 * <b>Code</b>
 
@@ -66,6 +66,7 @@ The implemention of Policy Iteration is divided into three parts. One for state 
 	* To be notice, we're using `np.linalg.solve` to calculate the value `V`.
 	
 	> Follow the guide bellow.
+	
 		```
 		# V[s] = P*(R + \gamma*V[s'])
 		# => (I-\gamma*P)*V = P*R
@@ -125,13 +126,14 @@ The implemention of Sampling-based Tabular Q-Learning is also divided into three
 * <b>Pseudocode</b>
 
 	> For <b>Q-learning Update</b>:
-	<p align="center"><img src="imgs/q_learning.PNG" width=50%  height=50%/></p>
+	<p align="left"><img src="imgs/q_learning.PNG" width=50%  height=50%/></p>
 	
 * <b>Code</b>
 	
-	1. `eps_greedy`:
+	<b>1. `eps_greedy`:</b>
 
 	> Follow the guide below.
+	
 		```
 		"""
 		Inputs:
@@ -145,41 +147,41 @@ The implemention of Sampling-based Tabular Q-Learning is also divided into three
 		#   number of actions can be read off from len(q_vals[state])
 		```
 
-	* Import `random`
-	* Random exploration. If random.random() > eps, argmax `q_vals`. Otherwise, random action.
-	```
-	if random.random() > eps:
-		action = np.argmax(q_vals[state])
-	else:
-		action = random.randint(0, len(q_vals[state])-1)
-	```
-	2. `q_learning_update`:
+		* Import `random`
+		* Random exploration. If random.random() > eps, argmax `q_vals`. Otherwise, random action.
+		```
+		if random.random() > eps:
+			action = np.argmax(q_vals[state])
+		else:
+			action = random.randint(0, len(q_vals[state])-1)
+		```
+	<b>2. `q_learning_update`:</b>
 	
-	* Calculate the dicounted reward to the target `target`.
-	```
-	target = reward + gamma * np.max(q_vals[next_state])		
-	```
+		* Calculate the dicounted reward to the target `target`.
+		```
+		target = reward + gamma * np.max(q_vals[next_state])		
+		```
 
-	* Update the dicounted reward with learning rate `alpha` in Q table.
-	```
-	q_vals[cur_state][action] = (1 - alpha) * q_vals[cur_state][action] + alpha * target
-	```
+		* Update the dicounted reward with learning rate `alpha` in Q table.
+		```
+		q_vals[cur_state][action] = (1 - alpha) * q_vals[cur_state][action] + alpha * target
+		```
 		
-	3. The main part:
+	<b>3. The main part:</b>
 	Combine `eps_greedy` and `q_learning_update`.
-	* Find the action.
-	```
-	action = eps_greedy(q_vals, eps, cur_state)
-	```
+		* Find the action.
+		```
+		action = eps_greedy(q_vals, eps, cur_state)
+		```
 
-	* Get `next_state` and `reward` with the action `action` calculated by `eps_greedy`.			
-	```			
-	next_state, reward, done, info = env.step(action)  
-	```
+		* Get `next_state` and `reward` with the action `action` calculated by `eps_greedy`.			
+		```			
+		next_state, reward, done, info = env.step(action)  
+		```
 
-	* Updating Q-value by `q_learning_update`.
-	```
-	q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
-	```
+		* Updating Q-value by `q_learning_update`.
+		```
+		q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
+		```
 
-	* Finally, iterate the steps above.
+		* Finally, iterate the steps above.
