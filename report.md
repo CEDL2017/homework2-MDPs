@@ -9,7 +9,7 @@ In first and second part, we use the <code>FrozenLakeEnv()</code> environment, a
 
 In the last part, we utilize <code>CrawlingRobotEnv()</code> , a crawler robot which is also taken from gy,, to implement tabular Q-learning.
 
-## Part 1 : implement value iteration
+## Part 1 : Implement value iteration
 
 ### Algorithm
 
@@ -68,7 +68,7 @@ Then I use <code>np.amax()</code> to get Value, <code>np.argmax()</code> to get 
 <p align="center"><img src="imgs/p1_visual2.PNG" /></p>
 
 
-## Part 2 : 
+## Part 2 : Implement policy iteration
 
 ### Algorithm
 
@@ -138,7 +138,7 @@ Finally, we can aquire new pi from <code>Qpi</code>
 
 <p align="center"><img src="imgs/p2_visual1.PNG" width=80%  height=80%/></p>
 
-## Part 3 :
+## Part 3 : Implement tabular Q-learning
 
 ### Algorithm
 
