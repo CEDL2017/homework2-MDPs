@@ -26,7 +26,7 @@ for it in range(nIt):
             pi[s] = np.argmax(a_array)
             V[s] = a_array[max_a]
 ```
->> 基於bellman-equation的精神，不斷地迭代它，讓它可以收斂到bellman-equation的解<br>
->> max|V-Vprev|越來越小，上課有談到這個方法的會收斂(if gamma in (0,1))
+> 基於bellman-equation的精神，不斷地迭代它，讓它可以收斂到bellman-equation的解<br>
+> max|V-Vprev|越來越小，上課有談到這個方法的會收斂(if gamma in (0,1))
 <br>
 <br>
