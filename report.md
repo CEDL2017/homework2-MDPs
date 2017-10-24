@@ -13,12 +13,14 @@ In this homework we have to implement value iteration, policy iteration and tabu
 * Value Iteration
 
 For value iteration, we have to implement two math equation below.
+<table border=1>
 <tr>
 <td>
 <img src="imgs/value_1.png"/>
 <img src="imgs/value_2.png"/>
 </td>
 </tr>
+</table>
 ```python
 V = np.zeros(mdp.nS)
 pi = np.zeros(mdp.nS)
