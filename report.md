@@ -8,10 +8,11 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 
 1. value iteration
 ```python
-for s in range(mdp.nS):            
-            a_array=np.zeros(mdp.nA)
+for it in range(nIt):
+	for s in range(mdp.nS):            
+		a_array=np.zeros(mdp.nA)
             
-            for a in range(mdp.nA): 
+        for a in range(mdp.nA): 
                 mysum=0
                 for ss in range(len(mdp.P[s][a])):
                     prob=mdp.P[s][a][ss][0]
@@ -21,8 +22,9 @@ for s in range(mdp.nS):
                     mysum=mysum+prob*(reward+GAMMA*Vprev[nextstate])
                 a_array[a]=mysum
             
-            max_a = np.argmax(a_array)
-            max_sum = a_array[max_a]
-            V[s]=max_sum
-            pi[s]=max_a 
-```  
+            pi[s] = np.argmax(a_array)
+            V[s] = a_array[max_a]
+```  
+>基於bellman-equation的精神，不斷地迭代它，讓它可以收斂到bellman-equation的解
+>max|V-Vprev|越來越小，上課有談到這個方法的會收斂(if gamma in (0,1))
+
