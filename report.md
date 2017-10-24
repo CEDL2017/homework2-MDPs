@@ -23,6 +23,7 @@ For value iteration, we have to implement two math equation below.
 </tr>
 </table>
 To update the value function for a given state, we have to go through each action in the state. And for each action, we have to sum over all the possible next state and finally, figure out the max value of the actions and update it to the value function in this state, and update the index of the action to the policy of the state.
+
 ```python
 V = np.zeros(mdp.nS)
 pi = np.zeros(mdp.nS)
@@ -34,6 +35,7 @@ for s in range(mdp.nS):
     V[s] = np.amax(V_act)						# update the max value of the action to the value function
     pi[s] = np.argmax(V_act)						# update the index of this action to the policy
 ```
+
 * Policy Iteration
 
 For policy iteration we have to compute state value function first and then the state action value function, finally, combine them to complete the policy iteration. 
@@ -46,6 +48,7 @@ For policy iteration we have to compute state value function first and then the 
 </tr>
 </table>
 We use the matrix form to solve the linear equation to obtain state value function. (I - gamma * P)V = P * R, which is equal to the matrix form Ax = B.
+
 ```python
 a = np.zeros((mdp.nS, mdp.nS)) 
 b = np.zeros(mdp.nS)
@@ -58,7 +61,9 @@ for s in range(mdp.nS):
 a = I - (gamma * P)					# and then do the matrix multiplication P*R
 V = np.linalg.solve(a, b)				# since each reward has its corresponding probability
 ```
+
 State action value function is a 2D array which records the value for each state and each action accordingly.
+
 ```python
 Qpi = np.zeros([mdp.nS, mdp.nA])
 for s in range(mdp.nS):
@@ -66,7 +71,9 @@ for s in range(mdp.nS):
         for prob, s_, reward in mdp.P[s][a]:
             Qpi[s][a] += prob * (reward + gamma * vpi[s_])
 ```
+
 Finally we combine the two function to do the policy iteration.
+
 ```python
 for it in range(nIt):
     vpi = compute_vpi(pi_prev, mdp, gamma)
