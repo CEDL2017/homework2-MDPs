@@ -9,7 +9,7 @@ This homework is related to UC Berkerly cs294 MDPs.
 
 > Markov Decision Process is a discrete time stochastic control process. At each time step, the process is in some state s, and the decision maker may choose any action a that is available in state s. The process responds at the next time step by randomly moving into a new state s', and giving the decision maker a corresponding reward R(s,a,s')
 ## Implementation
-In this homework we have to implement value iteration, policy iteration and tabular Q-learning. In value and policy iteration, we use a grid world which simulate a frozen lake with goal and hole on it. For an action on a specific state, mdp.P[state][action] will return possible next state and the probability and reward accordingly.
+In this homework we have to implement value iteration, policy iteration and tabular Q-learning. In value and policy iteration, we use a grid world which simulate a frozen lake with goal and hole on it. For an action on a specific state, mdp.P[state][action] will return all possible next state and the probability and reward accordingly.
 * Value Iteration
 
 For value iteration, we have to implement two math equation below.
@@ -41,6 +41,7 @@ For policy iteration we have to compute state value function first and then the 
 <tr>
 <td>
 <img src="imgs/policy_1.PNG"/>
+<img src="imgs/policy_2.PNG"/>
 </td>
 </tr>
 </table>
@@ -51,11 +52,26 @@ b = np.zeros(mdp.nS)
 I = np.identity(mdp.nS)					# generate an identity matrix
 P = np.zeros((mdp.nS, mdp.nS))
 for s in range(mdp.nS):
-    for prob, s_, reward in mdp.P[s][pi[s]]:
+    for prob, s_, reward in mdp.P[s][pi[s]]:		# for a given policy in the state
         P[s][s_] += prob
         b[s] += prob * reward				# here we cannot use another array R to sum over all the reward
 a = I - (gamma * P)					# and then do the matrix multiplication P*R
 V = np.linalg.solve(a, b)				# since each reward has its corresponding probability
+```
+State action value function is a 2D array which records the value for each state and each action accordingly.
+```python
+Qpi = np.zeros([mdp.nS, mdp.nA])
+for s in range(mdp.nS):
+    for a in range(mdp.nA):
+        for prob, s_, reward in mdp.P[s][a]:
+            Qpi[s][a] += prob * (reward + gamma * vpi[s_])
+```
+Finally we combine the two function to do the policy iteration.
+```python
+for it in range(nIt):
+    vpi = compute_vpi(pi_prev, mdp, gamma)
+    qpi = compute_qpi(vpi, mdp, gamma)
+    pi = np.argmax(qpi,1)	# the policy is the index of the max value for each state (i.e. the action with the max value)
 ```
 
 ## Installation
