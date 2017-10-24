@@ -1,5 +1,7 @@
 # 江愷笙 <span style="color:red">(106062568)</span>
 
+Here is the [github page](https://petersci.github.io/homework2-MDPs/) of my report.
+
 # Homework1 report
 
 TA: try to elaborate the algorithms that you implemented and any details worth mentioned.
