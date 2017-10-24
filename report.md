@@ -64,4 +64,8 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 
 3. Sampling-based Tabular Q-Learning
 > 利用random.random() 去模擬random sampling的過程<br>
-ps. 這次作業在視覺化呈現的部分，原本助教附的圖表+步驟化圖示對學習相當地有幫助!<br>
+
+## 心得
+1. 這次作業在視覺化呈現的部分，原本助教附的圖表+步驟化圖示對學習相當地有幫助!<br>
+2. 要先了解mdp.P裡面的資料儲存方式，並且重新對這些式子理解，才能有效地寫完這份作業<br>
+3. 感覺RL很有趣，在下次作業應該還會繼續學習它<br>
