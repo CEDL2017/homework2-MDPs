@@ -134,6 +134,8 @@ for itr in range(300000):
 ## Results
 * Value Iteration
 
+Here we can see the action and value update for each state.
+
 <table border=4>
 <tr>
 <td>
@@ -154,6 +156,13 @@ for itr in range(300000):
 
 * Policy Iteration
 
+<table border=5>
+<tr>
+<td>
+<img src="imgs/PI_plot.PNG"/>
+</td>
+</tr>
+</table>
 
 * Tabular Q- learning
 
