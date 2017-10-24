@@ -167,7 +167,7 @@ Here we can see the action and value update for each state.
 
 * Tabular Q-learning
 
-By finishing the tabular Q-learning, we can see a crawling robot moving fast from left to the right.
+By finishing the tabular Q-learning, we can see a crawling robot moving fast from the left to the right.
 
 <table border=5>
 <tr>
