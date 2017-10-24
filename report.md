@@ -7,6 +7,7 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 實作的細節上，需要花些時間去了解一開始資料是怎麼給的，以及我應該如何妥善地進行運算 <br/>
 
 1. value iteration
+
 ```python
 for it in range(nIt):
 	for s in range(mdp.nS):            
