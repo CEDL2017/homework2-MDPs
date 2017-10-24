@@ -130,6 +130,7 @@ for itr in range(300000):
 * Ipython notebook
 * Python3.5
 * OpenAI gym
+* to run the code, open Lab2-MDPs.ipynb by using Ipython notebook and execute each block.
 
 ## Results
 * Value Iteration
