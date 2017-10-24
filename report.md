@@ -115,11 +115,30 @@ target = reward + gamma * np.amax(q_vals[next_state])
 q_vals[cur_state][action] = (1-alpha) * q_vals[cur_state][action] + alpha * target
 ```
 
+Finally we combine these together
+
+```python
+for itr in range(300000):
+    action = eps_greedy(q_vals, eps, cur_state)
+    next_state, reward, done, info = env.step(action)		# obtain next_state and reward from the environment
+    q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
+    cur_state = next_state
+```
+
 ## Installation
 * Anaconda
 * Ipython notebook
 * Python3.5
 * OpenAI gym
+
 ## Results
+* Value Iteration
+
+
+* Policy Iteration
+
+
+* Tabular Q- learning
+
 
 
