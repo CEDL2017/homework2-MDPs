@@ -38,7 +38,8 @@ for s in range(mdp.nS):
 
 * Policy Iteration
 
-For policy iteration we have to compute state value function first and then the state action value function, finally, combine them to complete the policy iteration. 
+For policy iteration we have to compute state value function first and then the state action value function, finally, combine them to complete the policy iteration.
+
 <table border=2>
 <tr>
 <td>
@@ -80,6 +81,38 @@ for it in range(nIt):
     qpi = compute_qpi(vpi, mdp, gamma)
     pi = np.argmax(qpi,1)	# the policy is the index of the max value for each state 
     				# (i.e. the action with the max value)
+```
+
+* Tabular Q-learning
+
+For tabular Q-learning we use another environment for the crawling robot.
+To implement tabular Q-learning, we have to introduce greedy epsilon, which gives the random action to the robot. For a given epsilon, the probability to random select an action is epsilon, and the probability to select the action with max value is (1 - epsilon). The reason to include the randomness is that the world for the robot is not totally equal to our real world. For example, we ask the robot to move right, it still have some probability for the robot to do other actions such as moving left. Another reason is that if we add some randomness, the robot may not act too conservative, and this can avoid the robot to stuck in the local minima. For example, if some action leads to the negtive reward, it is likely that the robot would stuck in current state in order not to decrease the value, however, it is hard to achieve the goal. So it is helpful to add some randomness into it.
+
+For epslon greedy, if the random number smaller than epsilon, then random choose the action, otherwise, choose the action with the max value.
+
+```python
+import random
+action = 0
+random = random.random()
+if random < eps:
+    action = np.random.choice(range(len(q_vals[state])))	# random choose the action
+else:
+    action = np.argmax(q_vals[state])				# choose the action with the max value
+```
+To update the Q table, we have to implement the following two mathematical equations
+
+<table border=3>
+<tr>
+<td>
+<img src="imgs/Q-learning_1.PNG"/>
+<img src="imgs/Q-learning_2.PNG"/>
+</td>
+</tr>
+</table>
+
+```python
+target = reward + gamma * np.amax(q_vals[next_state])
+q_vals[cur_state][action] = (1-alpha) * q_vals[cur_state][action] + alpha * target
 ```
 
 ## Installation
