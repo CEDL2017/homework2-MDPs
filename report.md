@@ -33,8 +33,8 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 
 2a. state value function
 ```python
-	for s in range(mdp.nS):
-        a[s][s] = 1; #I
+		for s in range(mdp.nS):
+			a[s][s] = 1; #I
         for p in mdp.P[s][pi[s]]:
             prob=p[0]
             ss=p[1] #s'
