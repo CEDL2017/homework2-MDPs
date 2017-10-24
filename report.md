@@ -52,14 +52,14 @@ We use the matrix form to solve the linear equation to obtain state value functi
 ```python
 a = np.zeros((mdp.nS, mdp.nS)) 
 b = np.zeros(mdp.nS)
-I = np.identity(mdp.nS)					# generate an identity matrix
+I = np.identity(mdp.nS)				# generate an identity matrix
 P = np.zeros((mdp.nS, mdp.nS))
 for s in range(mdp.nS):
-    for prob, s_, reward in mdp.P[s][pi[s]]:		# for a given policy in the state
+    for prob, s_, reward in mdp.P[s][pi[s]]:	# for a given policy in the state
         P[s][s_] += prob
-        b[s] += prob * reward				# here we cannot use another array R to sum over all the reward
-a = I - (gamma * P)					# and then do the matrix multiplication P*R
-V = np.linalg.solve(a, b)				# since each reward has its corresponding probability
+        b[s] += prob * reward			# here we cannot use another array R to sum over all the reward
+a = I - (gamma * P)				# and then do the matrix multiplication P*R
+V = np.linalg.solve(a, b)			# since each reward has its corresponding probability
 ```
 
 State action value function is a 2D array which records the value for each state and each action accordingly.
@@ -78,7 +78,8 @@ Finally we combine the two function to do the policy iteration.
 for it in range(nIt):
     vpi = compute_vpi(pi_prev, mdp, gamma)
     qpi = compute_qpi(vpi, mdp, gamma)
-    pi = np.argmax(qpi,1)	# the policy is the index of the max value for each state (i.e. the action with the max value)
+    pi = np.argmax(qpi,1)	# the policy is the index of the max value for each state 
+    				# (i.e. the action with the max value)
 ```
 
 ## Installation
