@@ -137,16 +137,16 @@ for itr in range(300000):
 <table border=4>
 <tr>
 <td>
-<img src="imgs/VI_1.PNG" width="20%"/>
-<img src="imgs/VI_2.PNG" width="20%"/>
-<img src="imgs/VI_3.PNG" width="20%"/>
-<img src="imgs/VI_4.PNG" width="20%"/>
-<img src="imgs/VI_5.PNG" width="20%"/>
-<img src="imgs/VI_6.PNG" width="20%"/>
-<img src="imgs/VI_7.PNG" width="20%"/>
-<img src="imgs/VI_8.PNG" width="20%"/>
-<img src="imgs/VI_9.PNG" width="20%"/>
-<img src="imgs/VI_10.PNG" width="20%"/>
+<img src="imgs/VI_1.PNG" width="19%"/>
+<img src="imgs/VI_2.PNG" width="19%"/>
+<img src="imgs/VI_3.PNG" width="19%"/>
+<img src="imgs/VI_4.PNG" width="19%"/>
+<img src="imgs/VI_5.PNG" width="19%"/>
+<img src="imgs/VI_6.PNG" width="19%"/>
+<img src="imgs/VI_7.PNG" width="19%"/>
+<img src="imgs/VI_8.PNG" width="19%"/>
+<img src="imgs/VI_9.PNG" width="19%"/>
+<img src="imgs/VI_10.PNG" width="19%"/>
 <img src="imgs/VI_plot.PNG"/>
 </td>
 </tr>
