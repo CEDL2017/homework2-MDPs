@@ -35,7 +35,7 @@ The MDP of this problem is specified as follows:
 ```
         SFFF			0  1  2  3 
         FHFH			4  5  6  7
-        FFFH     ->     8  9  10 11
+        FFFH     -> 8  9  10 11
         HFFG			12 13 14 15
 ```
 
@@ -79,7 +79,7 @@ here it saves all these information in a 2-level dictionary, **mdp.P**, to repre
 
 #### Value iteration
 The concept in value iteration is base on Bellman Optimization Equation: </br>
-![BOE](v^*(s) = \max_{a\in A} (R^a_s + \gamma \sum_{s'\in S }P^a_{ss'} v^*(s')))
+![BOE](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%20%3D%20%5Cmax_%7Ba%5Cin%20A%7D%20%28R%5Ea_s%20&plus;%20%5Cgamma%20%5Csum_%7Bs%27%5Cin%20S%20%7DP%5Ea_%7Bss%27%7D%20v%5E*%28s%27%29%29)
 
 #### Policy iteration
 ### Sampling-based Tabular Q-Learning
