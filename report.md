@@ -83,13 +83,17 @@ The concept in value iteration is base on Bellman Optimization Equation: </br></
 ![BOE](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%20%3D%20%5Cmax_%7Ba%5Cin%20A%7D%20%28R%5Ea_s%20&plus;%20%5Cgamma%20%5Csum_%7Bs%27%5Cin%20S%20%7DP%5Ea_%7Bss%27%7D%20v%5E*%28s%27%29%29)
 </br>
 which in this case, since rewards also relate to s', we can rewrite it as:</br></br>
-![BOE_v2](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%20%3D%20%5Cmax_%7Ba%5Cin%20A%7D%20%28%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v%5E*%28s%27%29%29%29%20%3D%20%5Cmax_%7Ba%5Cin%20A%7D%28%5Csum_%7Bs%27%5Cin%20S%20%7DP%28s%2C%20a%2C%20s%27%29*%5BR%28s%2C%20a%2C%20s%27%29%20&plus;%20%5Cgamma%20v%5E*%28s%27%29%5D%29)
+![BOE_v2](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%3D%5Cmax_%7Ba%5Cin%20A%7D%20%28%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v%5E*%28s%27%29%29%29)
+![BOE_v3](https://latex.codecogs.com/gif.latex?%3D%20%5Cmax_%7Ba%5Cin%20A%7D%28%5Csum_%7Bs%27%5Cin%20S%20%7DP%28s%2C%20a%2C%20s%27%29*%5BR%28s%2C%20a%2C%20s%27%29%20&plus;%20%5Cgamma%20v%5E*%28s%27%29%5D%29)
 
 the idea is that for each iteration, we will find max value returned from all possible actions on current state, and replace the old value function of current state, s, with the new value functin. However in the implementation, we don't actually replace it directly, since we need to calculate the amount of difference of value function between current iteration and previous iteration. The result is as follows:
 <p align="center"><img src = "./imgs/max-diff-value-function.png"></p>
 
 for finding the best policy, we take _argmax_ in each iteration, and as the result we can see there are few actions changes when iteration goes higher.
 <p align="center"><img src = "./imgs/NchgAction.png"></p>
+
+The final optimal policy output can be seen in the [Lab2-MDPs.ipynb](./Lab2-MDPs.ipynb)
+</br>
 
 #### Policy iteration
 ### Sampling-based Tabular Q-Learning
