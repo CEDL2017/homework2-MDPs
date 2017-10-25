@@ -79,7 +79,7 @@ here it saves all these information in a 2-level dictionary, **mdp.P**, to repre
 </br>
 
 #### Value iteration
-The concept in value iteration is base on Bellman Optimization Equation: </br></br>
+The concept in value iteration is base on **Bellman Optimization Equation**: </br></br>
 ![BOE](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%20%3D%20%5Cmax_%7Ba%5Cin%20A%7D%20%28R%5Ea_s%20&plus;%20%5Cgamma%20%5Csum_%7Bs%27%5Cin%20S%20%7DP%5Ea_%7Bss%27%7D%20v%5E*%28s%27%29%29)
 </br>
 which in this case, since rewards also relate to s', we can rewrite it as:</br></br>
@@ -96,4 +96,15 @@ The final optimal policy output can be seen in the [Lab2-MDPs.ipynb](./Lab2-MDPs
 </br>
 
 #### Policy iteration
+The concept in policy iteration is base on **Bellman Expectation Equation** and **greedy selection of v_pi**, the Bellman Expectation Equation of v_pi  is as follows: </br></br>
+![BEE](https://latex.codecogs.com/gif.latex?v_%5Cpi%28s%29%3D%5Csum_%7Ba%5Cin%20A%7D%20%5Cpi%28a%20%7C%20s%29%20*%20%28%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v_%5Cpi%28s%27%29%29%29)
+
+However in this environment, our policy is deterministic policy, which means that we can simply rewrite the function as : </br></br>
+![BEE_simplify](https://latex.codecogs.com/gif.latex?v_%5Cpi%28s%29%3D%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v_%5Cpi%28s%27%29%29)
+![BEE_simplify_ext](https://latex.codecogs.com/gif.latex?%3D%5Csum_%7Bs%27%5Cin%20S%20%7DP%28s%2C%20%5Cpi%28s%29%2C%20s%27%29*%5BR%28s%2C%20%5Cpi%28s%29%2C%20s%27%29%20&plus;%20%5Cgamma%20v_%5Cpi%28s%27%29%5D)
+
+after solving the state value function we can then move on to solve the action-state value function to help us find the best policy. For every iteration, we update policy once, and as the same approach in value iteration, we can see the number of changed actions go to zero when iterations go higher. (The equation of _action-state value function_ and the equation of _policy_ are all described clear in the [Lab2-MDPs.ipynb](./Lab2-MDPs.ipynb), I will simply skip here)
+<p align="center"><img src = "./imgs/N-of-change-of-state-value-function.png"></p>
+
+
 ### Sampling-based Tabular Q-Learning
