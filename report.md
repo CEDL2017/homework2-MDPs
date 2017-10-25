@@ -3,10 +3,10 @@
 ### 105061528 陳玉亭
 
 
-###Overview:
+### Overview:
 >This homework is about value iteration, policy iteration and Q-learning.
 
-###Implementation:
+### Implementation:
 >I provide my solution in 'lab2.py' since it lags if I open jupyter remotely. However I have problem to setup the environment on my notebook. So, I give up to use ipython for above reasons. I also save the printed output in 'test.log' 
 
 Value iteraion use Bellman's equation to update the value of states iteratively. And take greedy action to estimate largest value. </br>
