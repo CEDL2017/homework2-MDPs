@@ -54,6 +54,7 @@ Open the assignment: Open Lab1-MDPs (students).ipynb, and it will walk you throu
 - [5%] Bonus, share you code and what you learn on github or  yourpersonal blogs, such as [this](https://andrewliao11.github.io/object/detection/2016/07/23/detection/)
 
 ## Other
+- Deadline: 10/26 23:59, 2017
 - Office hour 2-3 pm in 資電館711 with [Yuan-Hong Liao](https://andrewliao11.github.io).
 - Contact *andrewliao11@gmail.com* for bugs report or any questions.
 - If you stuck in the homework, here are some nice material that you can take it a look :smile:
