@@ -7,6 +7,9 @@
 ## Implementation
 1. Problem 1: implement value iteration:
   * in the iteration for loop
+  * <img src="imgs/a.png"/>
+  * <img src="imgs/b.png"/>
+
 ```
         V = np.zeros(mdp.nS)
         pi = np.zeros(mdp.nS)
@@ -31,6 +34,7 @@
   
 2. Problem 2a: state value function:
   * compute state-value function
+  * <img src="imgs/c.png"/>
 ```
     I = np.identity(mdp.nS)
     a = np.zeros((mdp.nS, mdp.nS))
@@ -52,6 +56,7 @@
 
 3. Problem 2b: state-action value function
   * compute state-action value function
+  * <img src="imgs/d.png"/>
 ```
     Qpi = np.zeros([mdp.nS, mdp.nA]) # REPLACE THIS LINE WITH YOUR CODE
     for s in range(mdp.nS):
@@ -75,6 +80,7 @@
 ```
 
   * Q learning update
+  * <img src="imgs/e.png"/>
 ```
     target = reward + gamma*np.max(q_vals[next_state]) #10
     q_vals[cur_state][action] = (1-alpha)*q_vals[cur_state][action] + alpha*target
