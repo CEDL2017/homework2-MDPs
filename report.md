@@ -165,10 +165,12 @@ For each iteration, we will first sample an action(0.5 for random, 0.5 for extra
 <div align="center">
 <img src = "./imgs/0-itr-of-state-changes.png" height="200px">
 <img src = "./imgs/50000-itr-of-state-changes.png" height="200px">
-<img src = "./imgs/100000-itr-of-state-changes.png" height="200px">
 </div>
 <div align="center">
+<img src = "./imgs/100000-itr-of-state-changes.png" height="200px">
 <img src = "./imgs/150000-itr-of-state-changes.png" height="200px">
+</div>
+<div align="center">
 <img src = "./imgs/200000-itr-of-state-changes.png" height="200px">
 <img src = "./imgs/250000-itr-of-state-changes.png" height="200px">
 </div>
