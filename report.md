@@ -8,6 +8,7 @@ overview
 code 
 
 Value Iteration
+<p align="center"><img src="imgs/1.PNG" width=30%  height=30%/></p>
   
         V = np.zeros(mdp.nS) 
         pi = np.zeros(mdp.nS) 
@@ -26,6 +27,7 @@ Value Iteration
 
 Policy Iteration
  1. compute_vpi that computes the state-value function for an arbitrary policy
+ <p align="center"><img src="imgs/2.PNG" width=30%  height=30%/></p>
                  
             a = np.eye(mdp.nS) #identity matrix
             b = np.zeros(mdp.nS) 
@@ -39,6 +41,7 @@ Policy Iteration
     
             
  2. compute_qpi that compute the state-action value function
+ <p align="center"><img src="imgs/3.PNG" width=30%  height=30%/></p>
   
          Qpi = np.zeros([mdp.nS, mdp.nA]) 
               for state in range(mdp.nS):
@@ -63,7 +66,7 @@ Tabular Q-Learning
          action = random_action
   
   2.q_learning_update that update the q_vals table to implement one step of Q-learning
-  
+  <p align="center"><img src="imgs/4.PNG" width=30%  height=30%/></p>
     target = reward + gamma * np.max(q_vals[next_state])
     q_vals[cur_state][action] = ((1 - alpha) * q_vals[cur_state][action]) + (alpha * target)
     
