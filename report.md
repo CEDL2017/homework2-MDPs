@@ -116,7 +116,8 @@ The final optimal policy output can also be seen in the [Lab2-MDPs.ipynb](./Lab2
 <img src = "./imgs/policy-converge-on-each-state.png" height="200px">
 <img src = "./imgs/value-converge-on-each-state.png" height="200px">
 </div>
-On the left hand side is the state-value-function result of **Policy Iteration** and **Value Iteration** on the right hand side. We can see in less number of iterations, the policy iteration achieves stable level. </br>
+
+On the left hand side is the state-value-function result of **Policy Iteration** and **Value Iteration** on the right hand side. We can see in less number of iterations, the policy iteration achieves stable level. </br></br>
 
 * reason:
 
