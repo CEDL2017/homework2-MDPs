@@ -23,7 +23,7 @@ for s in range(mdp.nS):
 ![](https://github.com/hellochick/homework2-MDPs/blob/master/imgs/state_value_function.png)
 
 在這邊我是參考 David Silver 課程當中所提到的推導，跟助教給的 hint 稍微不一樣，不過整體概念是相同的，都是透過線性轉換、反矩陣來算出 Vpi：
-![](https://github.com/hellochick/homework2-MDPs/blob/master/imgs/bellman_equation.png)
+![](https://github.com/hellochick/homework2-MDPs/blob/master/imgs/Bellman_equation.png)
 ```python
 for s in range(mdp.nS):
     a = pi[s]
