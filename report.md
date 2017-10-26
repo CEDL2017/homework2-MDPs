@@ -174,3 +174,9 @@ For each iteration, we will first sample an action(0.5 for random, 0.5 for extra
 <img src = "./imgs/200000-itr-of-state-changes.png" height="200px">
 <img src = "./imgs/250000-itr-of-state-changes.png" height="200px">
 </div>
+
+which the x-axis represents the armbucket-index, y-axis represents the handbucket-index, and the z-axis represents the sequence of the states. If we draw them all in the same figure, we could see:</br>
+<p align='center'><img src = "./imgs/combinations.png"></p>
+which the iteration from low to high corresponds to the colors of _red_, _orange_, _yellow_, _green_, _blue_ and _purple_ respectively. We can see start from the color **green**, **blue** and **purple**, those dots are barely to distinguish from each other, which means that their states are almost the same, and that is the point when our crawler reach the speed over 3.</br></br>
+The final successfully running crawler would be look like this:
+<img src="./img/tmp_vedio.gif">
