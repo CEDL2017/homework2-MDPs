@@ -78,7 +78,8 @@ state 15, action 3, (prob, next-s, rw) = (1.0, 15, 0)
 here it saves all these information in a 2-level dictionary, **mdp.P**, to represent the states, possible actions in each state, and their rewards.
 </br>
 
-#### Value iteration
+### Value iteration
+
 The concept in value iteration is base on **Bellman Optimization Equation**: </br></br>
 <p align='center'>![BOE](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%20%3D%20%5Cmax_%7Ba%5Cin%20A%7D%20%28R%5Ea_s%20&plus;%20%5Cgamma%20%5Csum_%7Bs%27%5Cin%20S%20%7DP%5Ea_%7Bss%27%7D%20v%5E*%28s%27%29%29)</p>
 which in this case, since rewards also relate to s', we can rewrite it as:</br></br>
@@ -94,9 +95,9 @@ For finding the best policy, we actually only need to take _argmax_ once after t
 The final optimal policy output can be seen in the [Lab2-MDPs.ipynb](./Lab2-MDPs.ipynb)
 </br>
 
-#### Policy iteration
+### Policy iteration
 The concept in policy iteration is base on **Bellman Expectation Equation** and **greedy selection of v_pi**, the Bellman Expectation Equation of v_pi  is as follows: </br></br>
-<p align='center'>![BEE](https://latex.codecogs.com/gif.latex?v_%5Cpi%28s%29%3D%5Csum_%7Ba%5Cin%20A%7D%20%5Cpi%28a%20%7C%20s%29%20*%20%28%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v_%5Cpi%28s%27%29%29%29)</p>
+![BEE](https://latex.codecogs.com/gif.latex?v_%5Cpi%28s%29%3D%5Csum_%7Ba%5Cin%20A%7D%20%5Cpi%28a%20%7C%20s%29%20*%20%28%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v_%5Cpi%28s%27%29%29%29)
 
 However in this environment, our policy is deterministic policy, which means that we can simply rewrite the function as : </br></br>
 <p align='center'>![BEE_simplify](https://latex.codecogs.com/gif.latex?v_%5Cpi%28s%29%3D%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v_%5Cpi%28s%27%29%29)
@@ -108,6 +109,8 @@ As the same result in value iteration, we can see the number of changed actions 
 <p align="center"><img src = "./imgs/N-of-change-of-state-value-function.png"></p>
 
 The final optimal policy output can also be seen in the [Lab2-MDPs.ipynb](./Lab2-MDPs.ipynb)
+
+### Why Policy-iteration converge faster than value-iteration
 
 
 ### Sampling-based Tabular Q-Learning
