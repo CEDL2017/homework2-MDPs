@@ -16,3 +16,8 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 <div align=left>
 <img src="https://github.com/guan-yuan/homework2-MDPs/blob/master/output/2.PNG" width = "100%" alt=""/>
 </div>
+
+## References
+The CEDL homeworks and slides. 
+https://github.com/CEDL2017/homework2-MDPs <p>
+https://github.com/CEDL2017/slides <p>
