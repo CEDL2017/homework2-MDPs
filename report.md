@@ -54,4 +54,18 @@ for s in range(mdp.nS):
 算出這兩項 function 後便能進行 policy itearation，不過在這邊我出來的結果有一項為 -0.00000 與助教給的答案 +0.00000 並不相同，但我猜想也許是在線性運算的過程中有些誤差造成的，整體的觀念應該是正確的。
 
 ## Sampling-based Tabular Q-Learning
-在這一部分要去實作出 Q-table，首先我們必須先實作出 eps-greedy，這是為了兼顧 exploration 以及 exploitation，因此除了每次選擇最佳 
+在這一部分要去實作出 Q-table，首先我們必須先實作出 eps-greedy，這是為了兼顧 exploration 以及 exploitation，因此除了每次選擇最佳 action 外，同時需要去嘗試隨機不同的 action，這樣才能有效學習：
+```python
+if random.random() < eps:
+    action = np.random.randint(len(q_vals[state]), size=1)
+else:
+    action = np.argmax(q_vals[state])
+```
+
+接著就照著公式去實作出 Q-Learning：
+![](https://github.com/hellochick/homework2-MDPs/blob/master/imgs/Q_Learning.png)
+```python
+target = reward + gamma * max(q_vals[next_state])
+q_vals[cur_state][action] = (1 - alpha) * q_vals[cur_state][action] + alpha * target
+```
+
