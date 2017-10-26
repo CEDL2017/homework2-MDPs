@@ -12,8 +12,8 @@
 所以迭帶步長逐步看時間延長到無限(足夠大)時
 該位置的最大獲利以及該移動方向為何  
   
-結果：
-
+結果：  
+![VI](https://github.com/w95wayne10/homework2-MDPs/blob/master/imgs/VI.png)
 
 ## Policy Iteration
 此方法類似Value Iteration  
@@ -23,6 +23,9 @@
 再將值引入state-action value function  
 如value iteration一般但更新各個動作的期望分數  
 選擇最大值成為新的policy繼續迴圈  
+  
+結果：  
+![PI](https://github.com/w95wayne10/homework2-MDPs/blob/master/imgs/PI.png)
   
 <hr />
 
@@ -47,3 +50,5 @@ Q-Learning便是採取sampling-based的方式解決問題
 第三段則是把兩個動作合併  
 成為一個完整的學習過程  
 
+結果：  
+訓練約85000次迴圈後皆可達到3.37的平均速率
