@@ -3,7 +3,7 @@
 
 TA: try to elaborate the algorithms that you implemented and any details worth mentioned.
 
-## In this homework2, we have used the value iteration and policy iteration to Markov Decision Processes (MDPs) with finite state and action spaces problems.<p>
+## In this homework2, we have used the value iteration and policy iteration to solve Markov Decision Processes (MDPs) with finite state and action spaces problems.<p>
  
 ## In the "Problem 2a: state value function", due to the properties the numerical analysis and computational issues, the different order of steps (but same outcome in logical) may produce different results, so I tried many times to get the answer to pass.
 
