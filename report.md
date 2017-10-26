@@ -1,4 +1,4 @@
-# Homework1 report
+# Homework1 Report
 # 陳冠元 105065530
 
 TA: try to elaborate the algorithms that you implemented and any details worth mentioned.
