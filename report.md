@@ -82,6 +82,7 @@ here it saves all these information in a 2-level dictionary, **mdp.P**, to repre
 
 The concept in value iteration is base on **Bellman Optimization Equation**: </br></br>
 ![BOE](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%20%3D%20%5Cmax_%7Ba%5Cin%20A%7D%20%28R%5Ea_s%20&plus;%20%5Cgamma%20%5Csum_%7Bs%27%5Cin%20S%20%7DP%5Ea_%7Bss%27%7D%20v%5E*%28s%27%29%29)
+</br></br>
 which in this case, since rewards also relate to s', we can rewrite it as:</br></br>
 ![BOE_v2](https://latex.codecogs.com/gif.latex?v%5E*%28s%29%3D%5Cmax_%7Ba%5Cin%20A%7D%20%28%5Csum_%7Bs%27%5Cin%20S%20%7D%20P%5Ea_%7Bss%27%7D*%28R%5Ea_%7Bss%27%7D%20&plus;%20%5Cgamma%20v%5E*%28s%27%29%29%29)
 ![BOE_v3](https://latex.codecogs.com/gif.latex?%3D%20%5Cmax_%7Ba%5Cin%20A%7D%28%5Csum_%7Bs%27%5Cin%20S%20%7DP%28s%2C%20a%2C%20s%27%29*%5BR%28s%2C%20a%2C%20s%27%29%20&plus;%20%5Cgamma%20v%5E*%28s%27%29%5D%29)
