@@ -163,12 +163,12 @@ In this approach, we mainly follow these two equations: </br></br>
 where the _a_ would have ϵ probability to be random selected.</br></br>
 For each iteration, we will first sample an action(0.5 for random, 0.5 for extracting maximum q-value index for certain state), and then apply update on our q-value base on the above two equations. We can see the state changes as below :</br>
 <div align="center">
-<img src = "./imgs/0-itr-of-state-changes.png" height="135px">
-<img src = "./imgs/50000-itr-of-state-changes.png" height="135px">
-<img src = "./imgs/100000-itr-of-state-changes.png" height="135px">
+<img src = "./imgs/0-itr-of-state-changes.png" height="200px">
+<img src = "./imgs/50000-itr-of-state-changes.png" height="200px">
+<img src = "./imgs/100000-itr-of-state-changes.png" height="200px">
 </div>
 <div align="center">
-<img src = "./imgs/150000-itr-of-state-changes.png" height="135px">
-<img src = "./imgs/200000-itr-of-state-changes.png" height="135px">
-<img src = "./imgs/250000-itr-of-state-changes.png" height="135px">
+<img src = "./imgs/150000-itr-of-state-changes.png" height="200px">
+<img src = "./imgs/200000-itr-of-state-changes.png" height="200px">
+<img src = "./imgs/250000-itr-of-state-changes.png" height="200px">
 </div>
