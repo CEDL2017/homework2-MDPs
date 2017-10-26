@@ -25,7 +25,8 @@
 選擇最大值成為新的policy繼續迴圈  
   
 結果：  
-![PI](https://github.com/w95wayne10/homework2-MDPs/blob/master/imgs/PI.png)
+![PI](https://github.com/w95wayne10/homework2-MDPs/blob/master/imgs/PI.png)  
+相較於Value Iteration，因每次迭代都多了一層更新(狀態+動作)達到穩定的速度較快  
   
 <hr />
 
