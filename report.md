@@ -26,31 +26,32 @@ Value Iteration
 
 Policy Iteration
  1. compute_vpi that computes the state-value function for an arbitrary policy
-  
-    a = np.eye(mdp.nS) #identity matrix
-    b = np.zeros(mdp.nS) 
-    V = np.zeros(mdp.nS) 
+                 
+            a = np.eye(mdp.nS) #identity matrix
+            b = np.zeros(mdp.nS) 
+            V = np.zeros(mdp.nS) 
 
-    for state in range(mdp.nS): #all states
-        for num in range(len(mdp.P[state][pi[state]])):
-            probability, next_state, reward = mdp.P[state][pi[state]][num]
-            a[state][next_state] -= gamma * probability
-            b[state] += probability * reward
+            for state in range(mdp.nS): #all states
+                for num in range(len(mdp.P[state][pi[state]])):
+                    probability, next_state, reward = mdp.P[state][pi[state]][num]
+                    a[state][next_state] -= gamma * probability
+                    b[state] += probability * reward
+    
             
  2. compute_qpi that compute the state-action value function
   
-     Qpi = np.zeros([mdp.nS, mdp.nA]) 
-        for state in range(mdp.nS):
-            V_action = np.zeros(mdp.nA)
-            for action in range(mdp.nA):
-                for num in range(len(mdp.P[state][action])):
-                    probability, next_state, reward = mdp.P[state][action][num]
-                    Qpi[state][action] += probability * (reward + gamma * vpi[next_state])
+         Qpi = np.zeros([mdp.nS, mdp.nA]) 
+              for state in range(mdp.nS):
+                  V_action = np.zeros(mdp.nA)
+                  for action in range(mdp.nA):
+                      for num in range(len(mdp.P[state][action])):
+                          probability, next_state, reward = mdp.P[state][action][num]
+                          Qpi[state][action] += probability * (reward + gamma * vpi[next_state])
   3.run the poolicy iteration that compute qpi which is the state-action values for current pi and compute the greedily policy, pi, from     qpi
     
-    vpi = compute_vpi(pi_prev, mdp, gamma)
-    Qpi = compute_qpi(vpi, mdp, gamma)
-    pi = np.argmax(Qpi, axis=1)
+          vpi = compute_vpi(pi_prev, mdp, gamma)
+          Qpi = compute_qpi(vpi, mdp, gamma)
+          pi = np.argmax(Qpi, axis=1)
     
 Tabular Q-Learning
   
