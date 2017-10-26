@@ -41,8 +41,17 @@ for it in range(nIt):
      Vs.append(V)
      pis.append(pi)
 ```
-Visualize results:
 
+![1](imgs/1.png "Visualize results:")
+![2](imgs/2.png)
+![3](imgs/3.png)
+![4](imgs/4.png)
+![5](imgs/5.png)
+![6](imgs/6.png)
+![7](imgs/7.png)
+![8](imgs/8.png)
+![9](imgs/9.png)
+![10](imgs/10.png)
 
 ## Problem 2: Policy Iteration
 ---
