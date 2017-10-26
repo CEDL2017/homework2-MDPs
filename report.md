@@ -24,9 +24,13 @@ Value iteraion use Bellman's equation to update the value of states iteratively.
 
 Policy iteration estimate the value of policy by 2 steps: (1) update state value (V) (2) update state-action value (Q) by V, and also take greedy action to estimate largest Q. </br>
 	
-	#compute V :
-	#(solve linear function V[s] = P*(R + \gamma*V[s']) by linalg.solve)		
-	#compute Q :
+	#compute V (solve linear function V[s] = P*(R + \gamma*V[s']) by linalg.solve)    
+	# initialize a an idenity matrix    
+	for s in range(mdp.nS):
+        for p in mdp.P[s][pi[s]]:
+            a[s][p[1]] -= gamma * p[0]; b[s] += p[0] * p[2] # P*reward
+    V = np.linalg.solve(a, b)		
+	#compute Q:
 	Qpi[s][a] += prob*(reward + gamma*vpi[nextState]) #psuedo code
 
 Sampling-based Q-Learning
