@@ -12,8 +12,7 @@ source activate cedl
 source deactivate cedl
 ```
 
-## Implementation
-### Simple Gridworld - Frozen Lake environment
+## Simple Gridworld - Frozen Lake environment
 The environment looks like follows as described from gym: </br>
 
 ```   	 
@@ -126,5 +125,50 @@ The main reason is that in one iteration, the Value-Iteration approach will only
 * pros and cons:
 
 Although Policy-Iteration converges faster, as we described above, it will be pretty expensive on **evaluating the policy**, but if it could evaluate the policy really fast like in this MDP problem, then Policy-Iteration is definitely a better choice for solving the problem.
+</br>
+
+## Crawler robot
+
+In this problem, we define our crawler as follows: </br>
+
+- _States(S)_:
+
+```
+state = (ArmBucket_index, HandBucket_index)
+ArmBucket_index = 0 ~ 8
+HandBucket_index = 0 ~ 12
+which ArmBucket = [-0.5235987755982988, -0.39269908169872414, -0.2617993877991494, -0.13089969389957468, 0.0, 0.13089969389957468, 0.26179938779914946, 0.39269908169872414, 0.5235987755982988]
+HandBucket = [-2.6179938779914944, -2.399827721492203, -2.181661564992912, -1.9634954084936207, -1.7453292519943298, -1.5271630954950384, -1.3089969389957472, -1.090830782496456, -0.8726646259971649, -0.6544984694978737, -0.43633231299858233, -0.21816615649929139, 0.0]
+```
+
+- _Actions(A)_:
+
+```
+0: ArmBucket_index-1 (decrease the angle of Arm)
+1: ArmBucket_index+1 (increase the angle of Arm)
+2: HandBucket_index-1 (decrease the angle of Hand)
+3: HandBucket_index+1 (increase the angle of Hand)
+```
+
+- _Gamma(γ)_: 0.9 </br>
+- _Rewards(R)_: the x-distance of moving </br>
+- _alpha(learning rate, α)_: 0.1 </br>
+- _epsilon(greedy exploration probability, ϵ)_: 0.5 </br>
+
 
 ### Sampling-based Tabular Q-Learning
+In this approach, we mainly follow these two equations: </br></br>
+![q-learn](https://latex.codecogs.com/gif.latex?target%28s%27%29%20%3D%20R%28s%2C%20a%2C%20s%27%29%20&plus;%20%5Cgamma%20%5Cmax_%7Ba%27%7D%20Q_%7B%5Ctheta_k%7D%28s%27%2C%20a%27%29)
+![q-learn_2](https://latex.codecogs.com/gif.latex?Q_%7Bk&plus;1%7D%28s%2C%20a%29%20%5Cleftharpoonup%20%281-%5Calpha%29*Q_k%28s%2C%20a%29%20&plus;%20%5Calpha%5Btarget%28s%27%29%5D)</br></br>
+where the _a_ would have ϵ probability to be random selected.</br></br>
+For each iteration, we will first sample an action(0.5 for random, 0.5 for extracting maximum q-value index for certain state), and then apply update on our q-value base on the above two equations. We can see the state changes as below :</br>
+<div align="center">
+<img src = "./imgs/0-itr-of-state-changes.png" height="135px">
+<img src = "./imgs/50000-itr-of-state-changes.png" height="135px">
+<img src = "./imgs/100000-itr-of-state-changes.png" height="135px">
+</div>
+<div align="center">
+<img src = "./imgs/150000-itr-of-state-changes.png" height="135px">
+<img src = "./imgs/200000-itr-of-state-changes.png" height="135px">
+<img src = "./imgs/250000-itr-of-state-changes.png" height="135px">
+</div>
