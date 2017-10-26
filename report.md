@@ -112,6 +112,18 @@ As the same result in value iteration, we can see the number of changed actions 
 The final optimal policy output can also be seen in the [Lab2-MDPs.ipynb](./Lab2-MDPs.ipynb)
 
 ### Why Policy-iteration converge faster than value-iteration
+<div align="center">
+<img src = "./imgs/policy-converge-on-each-state.png" height="200px">
+<img src = "./imgs/value-converge-on-each-state.png" height="200px">
+</div>
+On the left hand side is the state-value-function result of **Policy Iteration** and **Value Iteration** on the right hand side. We can see in less number of iterations, the policy iteration achieves stable level. </br>
 
+* reason:
+
+The main reason is that in one iteration, the Value-Iteration approach will only update value function once(on selecting the maximum result from all possible actions), while the Policy-Iteration approach will update the value function multiple times on given a certain policy, which is the **evaluating policy** stage we described in the _Policy Iteration_ above. (we solve in a close form solution way, so it's not obvious to see directly from the code). Therefore, we could expect that, in one iteration, the Policy-Iteration approach will update value function to a better stage compare with the result from Value-Iteration approach only because it updates much more times. </br>
+
+* pros and cons:
+
+Although Policy-Iteration converges faster, as we described above, it will be pretty expensive on **evaluating the policy**, but if it could evaluate the policy really fast like in this MDP problem, then Policy-Iteration is definitely a better choice for solving the problem.
 
 ### Sampling-based Tabular Q-Learning
