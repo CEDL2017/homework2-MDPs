@@ -18,6 +18,6 @@ TA: try to elaborate the algorithms that you implemented and any details worth m
 </div>
 
 ## References
-The CEDL homeworks and slides. 
+The CEDL homeworks and slides. <p>
 https://github.com/CEDL2017/homework2-MDPs <p>
 https://github.com/CEDL2017/slides <p>
