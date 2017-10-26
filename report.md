@@ -54,3 +54,4 @@ for s in range(mdp.nS):
 算出這兩項 function 後便能進行 policy itearation，不過在這邊我出來的結果有一項為 -0.00000 與助教給的答案 +0.00000 並不相同，但我猜想也許是在線性運算的過程中有些誤差造成的，整體的觀念應該是正確的。
 
 ## Sampling-based Tabular Q-Learning
+在這一部分要去實作出 Q-table，首先我們必須先實作出 eps-greedy，這是為了兼顧 exploration 以及 exploitation，因此除了每次選擇最佳 
