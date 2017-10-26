@@ -34,7 +34,7 @@ The MDP of this problem is specified as follows:
 ```
         SFFF			0  1  2  3 
         FHFH			4  5  6  7
-        FFFH     -> 8  9  10 11
+        FFFH     -> 		8  9  10 11
         HFFG			12 13 14 15
 ```
 
@@ -177,6 +177,7 @@ For each iteration, we will first sample an action(0.5 for random, 0.5 for extra
 
 which the x-axis represents the armbucket-index, y-axis represents the handbucket-index, and the z-axis represents the sequence of the states. If we draw them all in the same figure, we could see:</br>
 <p align='center'><img src = "./imgs/combinations.png"></p>
-which the iteration from low to high corresponds to the colors of _red_, _orange_, _yellow_, _green_, _blue_ and _purple_ respectively. We can see start from the color **green**, **blue** and **purple**, those dots are barely to distinguish from each other, which means that their states are almost the same, and that is the point when our crawler reach the speed over 3.</br></br>
+
+which the iteration from low to high corresponds to the colors of _red_, _orange_, _yellow_, _green_, _blue_ and _purple_ respectively. We can see when color start from **green**, **blue** and **purple**, those dots are barely to distinguish from each other, which means that their states are almost the same, and that is the point when our crawler reach the speed over 3.</br></br>
 The final successfully running crawler would be look like this:
 <img src="./img/tmp_vedio.gif">
