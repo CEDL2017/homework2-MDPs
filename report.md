@@ -1,3 +1,5 @@
-# Homework1 report
+# 何品萱 (106062553)
+## Homework1 report
 
-TA: try to elaborate the algorithms that you implemented and any details worth mentioned.
+
+algorithms and code details
