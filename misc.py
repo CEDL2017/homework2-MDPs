@@ -4,7 +4,7 @@ from six import StringIO, b
 
 from gym import utils
 import discrete_env
-
+#TEST
 LEFT = 0
 DOWN = 1
 RIGHT = 2
