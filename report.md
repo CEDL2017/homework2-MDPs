@@ -5,7 +5,7 @@
 ## Value iteration
 With known MDPs, implement Value iteration.   
 * Use immediate reward and one step look ahead, previous Value function to update the current Value function ,then return updated Value function and greedy policy accroding to Value function until converage.  
-```ruby
+```python
 V = np.zeros(mdp.nS)
 pi = np.zeros(mdp.nS)
   for state in range(mdp.nS):
@@ -25,7 +25,7 @@ pi = np.zeros(mdp.nS)
 ## Policy iteration
 With known MDPs, implement policy iteration.
 * Compute current Value function through current policy function. By soving linear equation, we will get Value function.    
-```ruby
+```python
 a = np.identity(mdp.nS)
 b = np.zeros(mdp.nS) 
 for state in range(mdp.nS):        
@@ -35,7 +35,7 @@ for state in range(mdp.nS):
 V = np.linalg.solve(a, b)
 ``` 
 * Compute Q-function through current Value function, Q-function is state-action values and Value function is state values.
-```ruby
+```python
 Qpi = np.zeros([mdp.nS, mdp.nA])
 for state in range(mdp.nS):
   for action in range(mdp.nA):
@@ -50,7 +50,7 @@ pi = np.argmax(qpi, axis=1)
 ## Tabular Q-Learning
 Without whole transition model, implement sample-based Q-learning.
 * eps greedy, use it to sample action with current state and current Q-function  
-```ruby
+```python
 random_action = math.floor(random.random() * len(q_vals[state]))
 max_action = np.argmax(q_vals[state])
 if random.random() >= eps:
@@ -59,12 +59,12 @@ else:
   action = random_action
 ```
 * Q-learning update, use it to update Q-function   
-```ruby
+```python
 target = reward + gamma*max(q_vals[next_state])
 q_vals[cur_state][action] = (1-alpha)*q_vals[cur_state][action] + alpha*target
 ```
 * Q-learing update iteration  
-```ruby
+```python
 for itr in range(300000):
   action = eps_greedy(q_vals, eps, cur_state)
   next_state, reward, done, info = env.step(action)
