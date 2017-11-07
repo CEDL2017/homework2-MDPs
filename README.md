@@ -64,7 +64,7 @@ for it in range(nIt):
 ```
 Policy iteration的作法事先用現在的policy去算出Vpi，再用Vpi去update policy。
 用上面寫好的function，得到Vpi, Qpi最後update pi。
-## Problem 3: Sampling-based Tabular Q-Learning
+## Sampling-based Tabular Q-Learning
 
 ```python
 import random
