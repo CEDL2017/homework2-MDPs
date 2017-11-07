@@ -1,60 +1,103 @@
-# Homework1-MDPs
+# Homework2-MDPs 105061535
 
-The lab materials are partially borrowed from [UC Berkerly cs294](http://rll.berkeley.edu/deeprlcourse/)
+## Value Iteration
 
+```python
 
-## Introduction
-In this homework, we solve MDPs with finte state and action space via value iteration, policy iteration, and tabular Q-learning. 
-
-### What's Markov decision process (MDP)?
-Markov Decision Process is a discrete time stochastic control process. At each time step, the process is in some state `s`, and the decision maker may choose any action `a` that is available in state `s`. The process responds at the next time step by randomly moving into a new state `s'`, and giving the decision maker a corresponding reward `R(s,a,s')`
-
-
-<p align="center"><img src="imgs/mdps.png" height="300"/></p>
-
-image borrowed from UCB CS188
-
-## Setup
-- Python 3.5.3
-- OpenAI gym
-- numpy
-- matplotlib
-- ipython
-
-All the codes you need to modified are in ```Lab2-MDPs.ipynb```. 
-
-We encourage you to install [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) in your laptop to avoid tedious dependencies problem.
-
-**for lazy people:**
+V = np.zeros(mdp.nS)
+pi = np.zeros(mdp.nS)
+for i in range(mdp.nS):
+    Vtmp = np.zeros(mdp.nA)
+    for j in range(mdp.nA):
+        for k in mdp.P[i][j]:
+            Vtmp[j] += k[0] * (k[2] + gamma * Vprev[k[1]])
+    V[i] = max(Vtmp)
+    pi[i] = np.argmax(Vtmp)
 ```
-conda env create -f environment.yml
-source activate cedl
-# deactivate when you want to leave the environment
-source deactivate cedl
+先initial value function 和 policy。接著for loop所有state, action，算出會得到的reward，最後挑reward最大的當作這個state的value，policy則挑可以得到最大reward的action。
+
+
+## Policy Iteration
+
+### State Value Function
+
+```python
+a = np.eye(mdp.nS) 
+b = np.zeros(mdp.nS) 
+    
+for s in range(mdp.nS):
+    for (p, next_s, r) in mdp.P[s][pi[s]]:
+        a[s][next_s] -= gamma * p
+        b[s] += p * r
+    
+V = np.linalg.solve(a, b)
+```
+這邊要evaluate這次policy的value function。這可以當作一個linear system解出來，把公式整理一下，得到a, b就可以算出。
+for loop所有state和next state算出a, b就可以解出V。
+
+
+### State-Action Value Function
+
+```python
+Qpi = np.zeros([mdp.nS, mdp.nA]) # REPLACE THIS LINE WITH YOUR CODE
+    
+for s in range(mdp.nS):
+    for a in range(mdp.nA):
+        transition_info = mdp.P[s][a]
+        for (p, next_s, r) in transition_info:
+            Qpi[s][a] += p * (r + gamma * vpi[next_s])
 ```
 
-## Prerequisites
-
-If you are unfamiliar with Numpy or IPython, you should read materials from [CS231n](http://cs231n.github.io/):
-
-- [Numpy tutorial](http://cs231n.github.io/python-numpy-tutorial/)
-- [IPython tutorial](http://cs231n.github.io/ipython-tutorial/)
+根據上面算好的Vpi，可以算出Qpi，只要for loop所有state, action，用Q function公式就可得到。
 
 
-## How to Start
+### policy_iteration
 
-Start IPython: After you clone this repository and install all the dependencies, you should start the IPython notebook server from the home directory
-Open the assignment: Open Lab1-MDPs (students).ipynb, and it will walk you through completing the assignment.
+```python
+for it in range(nIt):
+    # you need to compute qpi which is the state-action values for current pi
+    #               and compute the greedily policy, pi, from qpi
+    # >>>>> Your code (sample code are 3 lines)
+    vpi = compute_vpi(pi_prev, mdp, gamma)
+    qpi = compute_qpi(vpi, mdp, gamma)
+    pi = np.argmax(qpi, 1)
+```
+Policy iteration的作法事先用現在的policy去算出Vpi，再用Vpi去update policy。
+用上面寫好的function，得到Vpi, Qpi最後update pi。
+## Problem 3: Sampling-based Tabular Q-Learning
 
-## TODO
-- [30%] value iteration
-- [30%] policy iteration
-- [30%] tabular Q-learning
-- [10%] report
+```python
+import random
+random_num = random.random()
+if random_num < eps:
+    action = random.randint(0, len(q_vals[state])-1)
+else:
+    action = np.argmax(q_vals[state])
+```
+在sampling-based情況下要從探索或是使用現在的policy去作曲捨，可以用eps來當作使否探索的機率，如果機率小於eps則隨機選一個動作探索，否則就用現有的policy做決定。
 
-## Other
-- Office hour 2-3 pm in 資電館711 with [Yuan-Hong Liao](https://andrewliao11.github.io).
-- Contact *andrewliao11@gmail.com* for bugs report or any questions.
-- If you stuck in the homework, here are some nice material that you can take it a look :smile:
-  - [dennybritz/reinforcement-learning](https://github.com/dennybritz/reinforcement-learning)
-  - [UC Berkeley CS188 Intro to AI](http://ai.berkeley.edu/home.html)
+
+```python
+target = reward + gamma * np.max(q_vals[next_state])
+q_vals[cur_state][action] = (1-alpha) * q_vals[cur_state][action] + alpha * target
+```
+update q value得作法。
+
+
+
+```python
+for itr in range(300000):
+    # YOUR CODE HERE
+    # Hint: use eps_greedy & q_learning_update
+    # >>>>> Your code (sample code are 4 lines)
+    
+    action = eps_greedy(q_vals, eps, cur_state)
+    next_state, reward, done, info = env.step(action)
+    q_learning_update(gamma, alpha, q_vals, cur_state, action, next_state, reward)
+    cur_state = next_state
+```
+先用eps_greedy選擇action，環境給我們reward, next_state，在update q value
+
+
+
+
