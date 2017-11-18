@@ -2,17 +2,8 @@
 
 The lab materials are partially borrowed from [UC Berkerly cs294](http://rll.berkeley.edu/deeprlcourse/)
 
-
 ## Introduction
 In this homework, we solve MDPs with finte state and action space via value iteration, policy iteration, and tabular Q-learning. 
-
-### What's Markov decision process (MDP)?
-Markov Decision Process is a discrete time stochastic control process. At each time step, the process is in some state `s`, and the decision maker may choose any action `a` that is available in state `s`. The process responds at the next time step by randomly moving into a new state `s'`, and giving the decision maker a corresponding reward `R(s,a,s')`
-
-
-<p align="center"><img src="imgs/mdps.png" height="300"/></p>
-
-image borrowed from UCB CS188
 
 ## Setup
 - Python 3.5.3
@@ -20,8 +11,7 @@ image borrowed from UCB CS188
 - numpy
 - matplotlib
 - ipython
-
-All the codes you need to modified are in ```Lab2-MDPs.ipynb```. 
+All the codes you need to modified are in ```Lab1-MDPs (students).ipynb```. 
 
 We encourage you to install [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) in your laptop to avoid tedious dependencies problem.
 
@@ -29,7 +19,7 @@ We encourage you to install [Anaconda](https://www.anaconda.com/download/) or [M
 ```
 conda env create -f environment.yml
 source activate cedl
-# deactivate when you want to leave the environment
+# deactivate when you want to leaving the environment
 source deactivate cedl
 ```
 
@@ -51,12 +41,8 @@ Open the assignment: Open Lab1-MDPs (students).ipynb, and it will walk you throu
 - [30%] policy iteration
 - [30%] tabular Q-learning
 - [10%] report
-- [5%] Bonus, share you code and what you learn on github or  yourpersonal blogs, such as [this](https://andrewliao11.github.io/object/detection/2016/07/23/detection/)
 
-## Other
-- Deadline: 10/26 23:59, 2017
-- Office hour 2-3 pm in 資電館711 with [Yuan-Hong Liao](https://andrewliao11.github.io).
-- Contact *andrewliao11@gmail.com* for bugs report or any questions.
-- If you stuck in the homework, here are some nice material that you can take it a look :smile:
-  - [dennybritz/reinforcement-learning](https://github.com/dennybritz/reinforcement-learning)
-  - [UC Berkeley CS188 Intro to AI](http://ai.berkeley.edu/home.html)
+# Other
+If you stuck in the homework, here are some nice material that you can take it a look :smile:
+- [dennybritz/reinforcement-learning](https://github.com/dennybritz/reinforcement-learning)
+- [UC Berkeley CS188 Intro to AI](http://ai.berkeley.edu/home.html)
