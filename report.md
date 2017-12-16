@@ -6,7 +6,7 @@
 <img src="imgs/value_iteration.jpg">
 
 Finally, the best value function is obtained and so is the best policy,
-<img src="imgs/vi_policy">
+<img src="imgs/vi_policy.jpg" width="350">
 
 This is the implementation code.
 ```
